@@ -15,6 +15,7 @@
   </head>
 
   <body>
+    
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">Snoopie</a>
@@ -41,8 +42,8 @@
         </div>
       </div>
     </nav>
-    <div class="container-fluid">
-      <div class="row">
+    <div class="container-fluid aside">
+      <div class="row aside">
         <aside class="col-sm-3">
           <button class="btn btn-primary">Generate Names</button>
           <ul id="names-list">
@@ -51,6 +52,7 @@
         </aside>
       </div>
     </div>
+    <section>
     <form>
       <label for="zipcode">Enter your Zipcode</label><br />
       <input type="text" id="zipcode" name="zipcode" value="30022" /><br />
@@ -75,8 +77,9 @@
 
       <div id="match-dog" class="match-dog hide"></div>
     </div>
-
+  </section>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="assets/script.js"></script>
+    
   </body>
 </html>

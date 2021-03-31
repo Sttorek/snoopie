@@ -1,3 +1,17 @@
 h1 {
-    color: red;
+  color: red;
+}
+
+section {
+  margin-left: 200px;
+}
+
+.aside {
+  width: 10%;
+  padding-left: 5px;
+  margin-left: 5px;
+  background-color: lightsteelblue;
+  height: 100%;
+  position: absolute;
+  float: left;
 }
