@@ -3,6 +3,7 @@ var key = "oxrPyoy6v3XMn43E8m5y5ZVOEGAmTO52CKOvjV7CckXTDJvpjG";
 var secret = "AYuKkVCKqFIYCOxKzBWeihxy7lA7vSOReHMlLC5E";
 var dogNames = [];
 var listEl = $("#names-list")
+var nameBtn = $("#nameBtn")
 
 // API token fetch to access page
 
@@ -67,4 +68,7 @@ function nameGen() {
     console.log(dogNames);
   })
 }
-nameGen();
+
+$(nameBtn).on("click", function() {
+  nameGen();
+});
