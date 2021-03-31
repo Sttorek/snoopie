@@ -15,6 +15,7 @@
   </head>
 
   <body>
+    
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">Snoopie</a>
@@ -41,6 +42,37 @@
         </div>
       </div>
     </nav>
+    <div class="container-fluid aside">
+      <div class="row aside">
+        <aside class="col-sm-3">
+          <button class="btn btn-primary">Generate Names</button>
+          <ul id="names-list">
+            append items here
+          </ul>
+        </aside>
+      </div>
+    </div>
+    <section>
+    <form>
+      <label for="zipcode">Enter your Zipcode</label><br />
+      <input type="text" id="zipcode" name="zipcode" value="30022" /><br />
+      <input type="submit" value="Submit" />
+    </form>
+    <div class="wrapper">
+      <div id="start-screen" class="start">
+        <h1>Personality Quiz</h1>
+        <p>Take the personality quiz to match with a dog near you!</p>
+        <button id="start">Start Quiz</button>
+      </div>
+
+      <div id="questions" class="hide">
+        <h2 id="question-title"></h2>
+        <div id="choices" class="choices"></div>
+      </div>
+
+      <div id="end-screen" class="hide">
+        <h2>All done!</h2>
+        <p>Your dog is <span id="final-dog"></span>.</p>
     <div class="wrapper">
         <div id="start-screen" class="start">
           <h1>Personality Quiz</h1>
@@ -69,7 +101,11 @@
         <div id="match-dog" class="match-dog hide"></div>
       </div>
 
+      <div id="match-dog" class="match-dog hide"></div>
+    </div>
+  </section>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="assets/script.js"></script>
+    
   </body>
 </html>
