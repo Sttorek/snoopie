@@ -1,10 +1,17 @@
-// Variables
+//Dom Variables------------------------------------------------------------------------
 var key = "oxrPyoy6v3XMn43E8m5y5ZVOEGAmTO52CKOvjV7CckXTDJvpjG";
 var secret = "AYuKkVCKqFIYCOxKzBWeihxy7lA7vSOReHMlLC5E";
 var dogNames = [];
 var listEl = $("#names-list")
 var nameBtn = $("#nameBtn")
 
+
+
+// JavaScript Variables ---------------------------------------------------------------
+
+
+
+// function Definitions --------------------------------------------------------------
 // API token fetch to access page
 
 function firstFetch(token) {
@@ -71,7 +78,14 @@ function nameGen() {
   })
 }
 
+
+// Event Listeners ---------------------------------------------------------------
 $(nameBtn).on("click", function() {
   dogNames = [];
   nameGen();
 });
+
+
+
+
+// Function Calls -----------------------------------------------------------------
