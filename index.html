@@ -41,11 +41,6 @@
         </div>
       </div>
     </nav>
-    <form>
-        <label for="zipcode">Enter your Zipcode</label><br>
-        <input type="text" id="zipcode" name="zipcode" value="30022"><br>
-        <input type="submit" value="Submit">
-    </form> 
     <div class="wrapper">
         <div id="start-screen" class="start">
           <h1>Personality Quiz</h1>
@@ -54,6 +49,12 @@
           </p>
           <button id="start">Start Quiz</button>
         </div>
+
+        <form class="hide">
+            <label for="zipcode">Enter your Zipcode</label><br>
+            <input type="text" id="zipcode" name="zipcode" value="30022"><br>
+            <input type="submit" value="Submit">
+        </form> 
   
         <div id="questions" class="hide">
           <h2 id="question-title"></h2>

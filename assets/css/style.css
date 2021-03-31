@@ -7,6 +7,19 @@
   border-bottom: 1px dashed black;
 }
 
+.wrapper {
+  margin: 100px auto 0 auto;
+  max-width: 600px;
+}
+
+.hide {
+  display: none;
+}
+
+.start {
+  text-align: center;
+}
+
 /* ID's -------------------------------------------------- */
 #search-container {
   background-color: rgb(253, 252, 252);
@@ -20,3 +33,4 @@
   overflow: scroll;
   border: 1px solid black;
 }
+
