@@ -1,9 +1,25 @@
-h1 {
-  color: red;
-}
+/* universal -------------------------------------------- */
 
+/* elements ----------------------------------------------*/
 section {
   margin-left: 200px;
+}
+/* classes ----------------------------------------------- */
+.result {
+  border-bottom: 1px dashed black;
+}
+
+.wrapper {
+  margin: 100px auto 0 auto;
+  max-width: 600px;
+}
+
+.hide {
+  display: none;
+}
+
+.start {
+  text-align: center;
 }
 
 .aside {
@@ -15,3 +31,25 @@ section {
   position: absolute;
   float: left;
 }
+/* ID's -------------------------------------------------- */
+#search-container {
+  background-color: rgb(253, 252, 252);
+  height: 500px;
+  width: 1000px;
+  display: flex;
+  justify-content: space-evenly;
+  position: relative;
+  margin-left: 450px;
+  margin-top: 100px;
+  overflow: scroll;
+  border: 1px solid black;
+}
+
+.aside {
+  width: 10%;
+  padding-left: 5px;
+  margin-left: 5px;
+  background-color: lightsteelblue;
+  height: 100%;
+  position: absolute;
+  float: left;
