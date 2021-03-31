@@ -4,6 +4,9 @@
 section {
   margin-left: 200px;
 }
+li {
+  list-style-type: none;
+}
 /* classes ----------------------------------------------- */
 .result {
   border-bottom: 1px dashed black;
