@@ -1,3 +1,37 @@
+// Arrays ------------------------------------------------------------------------------
+var dogQuotes = [
+  {
+    quote: "“The dog is a gentleman; I hope to go to his heaven, not man’s”",
+    author: "~ Mark Twain",
+  },
+
+  {
+    quote: "'Every dog must have his day.'",
+    author: "~ Jonathan Swift",
+  },
+
+  {
+    quote: "'A lot of shelter dogs are mutts like me.'",
+    author: "~ Barack Obama",
+  },
+
+  {
+    quote: "'What do dogs do on their day off? Can't lie around - that's their job.'",
+    author: "~ George Carlin",
+  },
+
+  {
+    quote: "'Happiness is a warm puppy.'",
+    author: "~ Charles Shultz",
+  }
+
+]
+
+
+
+
+
+
 //Dom Variables------------------------------------------------------------------------
 var key = "oxrPyoy6v3XMn43E8m5y5ZVOEGAmTO52CKOvjV7CckXTDJvpjG";
 var secret = "AYuKkVCKqFIYCOxKzBWeihxy7lA7vSOReHMlLC5E";
