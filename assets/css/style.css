@@ -1,3 +1,22 @@
-h1 {
-    color: red;
+/* universal -------------------------------------------- */
+
+/* elements ----------------------------------------------*/
+
+/* classes ----------------------------------------------- */
+.result {
+  border-bottom: 1px dashed black;
+}
+
+/* ID's -------------------------------------------------- */
+#search-container {
+  background-color: rgb(253, 252, 252);
+  height: 500px;
+  width: 1000px;
+  display: flex;
+  justify-content: space-evenly;
+  position: relative;
+  margin-left: 450px;
+  margin-top: 100px;
+  overflow: scroll;
+  border: 1px solid black;
 }
