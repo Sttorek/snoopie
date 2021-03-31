@@ -1,3 +1,10 @@
+// Variables
+var key = "oxrPyoy6v3XMn43E8m5y5ZVOEGAmTO52CKOvjV7CckXTDJvpjG";
+var secret = "AYuKkVCKqFIYCOxKzBWeihxy7lA7vSOReHMlLC5E";
+var dogNames = [];
+
+// API token fetch to access page
+
 function firstFetch(token) {
   var queryURL = "https://api.petfinder.com/v2/animals?breed=pug";
 
@@ -17,10 +24,7 @@ function firstFetch(token) {
     });
 }
 
-
-
-var key = "oxrPyoy6v3XMn43E8m5y5ZVOEGAmTO52CKOvjV7CckXTDJvpjG";
-var secret = "AYuKkVCKqFIYCOxKzBWeihxy7lA7vSOReHMlLC5E";
+// API pet fetch to get data
 
 fetch("https://api.petfinder.com/v2/oauth2/token", {
     method: "POST",
@@ -46,21 +50,19 @@ fetch("https://api.petfinder.com/v2/oauth2/token", {
     console.log("something went wrong", err);
   });
 
+  // Dog Name Generator 
+  
 function nameGen() {
-  fetch("https://api.fungenerators.com/name/categories.json?start=0&limit=5")
+  fetch("https://api.fungenerators.com/name/generate?category=dog&limit=50")
   .then(function (response) {
     return response.json();
   }).then(function (data) {
-    console.log(data)
+    // console.log(data);
+    // console.log(data.contents.names[0]);
+    for (var i = 0; i < 5; i++) {
+      dogNames.push(data.contents.names[Math.floor(Math.random() * data.contents.names.length)]);
+    }
+    console.log(dogNames);
   })
 }
 nameGen();
-
-
-
-
-// .then(function (resp) {
-//   // Return the response as JSON
-//   return resp.json();
-//   console.log(data)
-// })
