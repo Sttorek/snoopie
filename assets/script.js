@@ -54,6 +54,7 @@ function nameGen() {
     console.log(data)
   })
 }
+nameGen();
 
 
 
