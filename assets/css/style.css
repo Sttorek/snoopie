@@ -48,12 +48,12 @@ li {
   border: 1px solid black;
 }
 
-.aside {
-  width: 10%;
-  padding-left: 5px;
-  margin-left: 5px;
-  background-color: lightsteelblue;
-  height: 100%;
-  position: absolute;
-  float: left;
+#quote-box {
+ position: fixed;
+ bottom: 0;
+ right: 0;
+ display: flex;
+ justify-content: space-between;
+ font-size: 24px;
 }
+
