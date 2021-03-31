@@ -62,7 +62,7 @@ function nameGen() {
     // console.log(data.contents.names[0]);
     for (var i = 0; i < 5; i++) {
       dogNames.push(data.contents.names[Math.floor(Math.random() * data.contents.names.length)]);
-      listEl.append('<li>' + dogNames + '</li>');
+      listEl.append("<li>" + dogNames[i] + "</li>");
     }
     console.log(dogNames);
   })
