@@ -2,6 +2,7 @@
 var key = "oxrPyoy6v3XMn43E8m5y5ZVOEGAmTO52CKOvjV7CckXTDJvpjG";
 var secret = "AYuKkVCKqFIYCOxKzBWeihxy7lA7vSOReHMlLC5E";
 var dogNames = [];
+var listEl = $("#names-list")
 
 // API token fetch to access page
 
@@ -61,6 +62,7 @@ function nameGen() {
     // console.log(data.contents.names[0]);
     for (var i = 0; i < 5; i++) {
       dogNames.push(data.contents.names[Math.floor(Math.random() * data.contents.names.length)]);
+      listEl.append('<li>' + dogNames + '</li>');
     }
     console.log(dogNames);
   })
