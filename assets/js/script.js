@@ -169,7 +169,6 @@ $(nameBtn).on("click", function() {
 });
 
 startBtn.on("click", function () {
-  //clear out personalitytitle and instructions
   console.log("this button was clicked");
   $(".start").hide();
   $("#startBtn").hide();
@@ -179,5 +178,6 @@ startBtn.on("click", function () {
 
 
 // Function Calls -----------------------------------------------------------------
+dogQuoteGenerator();
 
 });
