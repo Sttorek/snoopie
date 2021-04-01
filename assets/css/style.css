@@ -86,7 +86,9 @@ li {
   margin-left: -21px;
 }
 
-#favNames {
-  color: orangered;
+#fav-names {
+  color: red;
   margin-left: 25px;
+  font-size: 20px;
 }
+
