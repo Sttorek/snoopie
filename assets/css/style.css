@@ -43,6 +43,9 @@ li {
   height: 20px;
   width: 90px;
   margin-top: 5px;
+  text-align: center;
+  padding-bottom: 25px;
+  border-radius: 13px;
 }
 /* ID's -------------------------------------------------- */
 #search-container {
@@ -71,4 +74,9 @@ li {
   margin-top: 20px;
   margin-left: 20px;
   
+}
+#list-container {
+  height: 200px;
+  width: 150px;
+  margin-left: -21px;
 }
