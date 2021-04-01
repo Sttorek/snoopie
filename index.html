@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Find A Friend</title>
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -41,24 +41,22 @@
         </div>
       </div>
     </nav>
-    <div class="container-fluid aside">
-      <div class="row aside">
-        <aside class="col-sm-3">
-          <button id="nameBtn" class="btn btn-primary">Generate Names</button>
+    
+    <div class="sidenav-pg2">
+      <button id="nameBtn" class="btn btn-primary">Generate Names</button>
           <div id="list-container">
             <ul id="names-list"></ul>
           </div>
-        </aside>
-      </div>
     </div>
+
+
     <section>
       <div class="wrapper">
-        <div id="start-screen" class="start">
-          <h1>Personality Quiz</h1>
-          <p>Take the personality quiz to match with a dog near you!</p>
+        <div id="start-screen" class="start"></div>
+        <div class="start-quizBtn text-center">
           <button id="start" class="btn btn-primary">Start Quiz</button>
         </div>
-
+        
         <form class="hide">
           <label for="zipcode">Enter your Zipcode</label><br />
           <input type="text" id="zipcode" name="zipcode" value="30022" /><br />
@@ -79,13 +77,22 @@
       </div>
     </section>
 
-    <footer id="quote-box">
-      <div id="person"></div>
-      <div id="quote"></div>
-    </footer>
+      <div id="match-dog" class="match-dog hide"></div>
+    </div>
+  </section>
+
+  <footer id="quote-box">
+    <div id="quote">
+     
+    </div>
+    <div id="person">
+      
+    </div>
+  </footer>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="assets/js/script.js"></script>
-    <script src="assets/js/script2.js"></script>
-    <script src="assets/js/script2.js"></script>
+    
+    <script src="assets/js/questions.js"></script>
+    
   </body>
 </html>

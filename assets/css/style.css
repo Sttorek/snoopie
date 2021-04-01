@@ -28,13 +28,13 @@ li {
 }
 
 .aside {
-  width: 10%;
+  width: 9%;
   padding-left: 5px;
   margin-left: 5px;
   background-color: lightsteelblue;
   height: 100%;
   position: absolute;
-  float: left;
+  /* float: left; */
   justify-content: center;
 }
 
@@ -48,6 +48,7 @@ li {
   padding-bottom: 25px;
   border-radius: 13px;
 }
+
 /* ID's -------------------------------------------------- */
 #search-container {
   background-color: rgb(253, 252, 252);
@@ -56,25 +57,34 @@ li {
   display: flex;
   justify-content: space-evenly;
   position: relative;
-  margin-left: 450px;
+  margin-left: 400px;
   margin-top: 100px;
   overflow: scroll;
   border: 1px solid black;
+  
+}
+
+#aside-container {
+  display: flex;
+  justify-content: center;
+  background-color: blueviolet;
 }
 
 #quote-box {
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  display: flex;
-  justify-content: space-between;
-  font-size: 24px;
+ position: fixed;
+ bottom: 0;
+ right: 0;
+ display: flex;
+ justify-content: flex-end;
+ font-size: 20px;
+ padding-bottom: 3px;
+ padding-right: 20px;
+ background-color: rgb(247, 247, 247);
+ width: 100%;
 }
 
 #nameBtn {
   margin-top: 20px;
-  margin-left: 20px;
-  margin-right: 20px;
   width: 100px;
   align-items: center;
 }
@@ -82,10 +92,26 @@ li {
 #list-container {
   height: 200px;
   width: 150px;
-  margin-left: -21px;
+  margin-left: 10px;
+  margin-top: 10px;
 }
 
 #favNames {
   color: orangered;
-  margin-left: 30px;
+  margin-left: 25px;
 }
+
+.sidenav-pg2 {
+  height: 100%; 
+  width: 190px; 
+  position: fixed; 
+  z-index: 1; 
+  top: 0; 
+  left: 0;
+  background-color: lightsteelblue; 
+  overflow-x: hidden; 
+  margin-top: 55px;
+  text-align: center;
+  
+}
+
