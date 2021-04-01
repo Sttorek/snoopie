@@ -96,7 +96,7 @@ fetch("https://api.petfinder.com/v2/oauth2/token", {
   // Dog Name Generator 
   
 function nameGen() {
-  $(listEl).empty();
+  listEl.empty();
 
   fetch("https://api.fungenerators.com/name/generate?category=dog&limit=50")
   .then(function (response) {
