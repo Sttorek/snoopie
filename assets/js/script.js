@@ -190,7 +190,7 @@ function getQuestion1() {
   $("#choice2").html(questions[0].choices[1]);
   $("#choice3").html(questions[0].choices[2]);
   $("#choices").addClass("answer-buttons");
-
+// shdohdhoq
 
 }
 
