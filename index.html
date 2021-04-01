@@ -15,7 +15,6 @@
   </head>
 
   <body>
-    
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">Snoopie</a>
@@ -47,78 +46,42 @@
         <aside class="col-sm-3">
           <button id="nameBtn" class="btn btn-primary">Generate Names</button>
           <div id="list-container">
-            <ul id="names-list">
-            </ul>
-          </div>
-          <div id="favNames">
-            <h4>Favorite Names:</h4>
+            <ul id="names-list"></ul>
           </div>
         </aside>
       </div>
     </div>
     <section>
-    <form class="hide">
-      <label for="zipcode">Enter your Zipcode</label><br />
-      <input type="text" id="zipcode" name="zipcode" value="30022" /><br />
-      <input type="submit" value="Submit" />
-    </form>
-    <div class="wrapper">
-      <div id="homepage" class="start">
-        <!-- <h1>Personality Quiz</h1>
-        <p>Take the personality quiz to match with a dog near you!</p> -->
-        <div>
-          <button id="start" class ="btn btn-primary">Start Quiz</button>
+      <div class="wrapper">
+        <div id="start-screen" class="start"></div>
+        <div class="start-quizBtn text-center">
+          <button id="start" class="btn btn-primary">Start Quiz</button>
         </div>
-      </div>
-
-      <div id="questions" class="hide">
-        <h2 id="question-title"></h2>
-        <div id="choices" class="choices"></div>
-      </div>
-
-      <div id="end-screen" class="hide">
-        <h2>All done!</h2>
-        <p>Your dog is <span id="final-dog"></span>.</p>
-    <div class="wrapper">
-        <div id="start-screen" class="start">
-          <h1>Personality Quiz</h1>
-          <p>
-            Take the personality quiz to match with a dog near you!
-          </p>
-          <button id="start" class ="btn btn-primary">Start Quiz</button>
-        </div>
-
+        
         <form class="hide">
-            <label for="zipcode">Enter your Zipcode</label><br>
-            <input type="text" id="zipcode" name="zipcode" value="30022"><br>
-            <input type="submit" value="Submit">
-        </form> 
-  
+          <label for="zipcode">Enter your Zipcode</label><br />
+          <input type="text" id="zipcode" name="zipcode" value="30022" /><br />
+          <input type="submit" value="Submit" />
+        </form>
+
         <div id="questions" class="hide">
           <h2 id="question-title"></h2>
           <div id="choices" class="choices"></div>
         </div>
-  
+
         <div id="end-screen" class="hide">
           <h2>All done!</h2>
           <p>Your dog is <span id="final-dog"></span>.</p>
         </div>
-  
+
         <div id="match-dog" class="match-dog hide"></div>
       </div>
+    </section>
 
-      <div id="match-dog" class="match-dog hide"></div>
-    </div>
-  </section>
-
-  <footer id="quote-box">
-    <div id="person">
-      
-    </div>
-    <div id="quote">
-      
-    </div>
-  </footer>
+    <footer id="quote-box">
+      <div id="person"></div>
+      <div id="quote"></div>
+    </footer>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="assets/js/script.js"></script>
     
