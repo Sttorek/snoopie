@@ -180,9 +180,14 @@ function nameGen() {
 
 function getQuestion1() {
   questionsEl.addClass("show")
-  // questionAsked.innerHTML = "thththth";
+  $("#choice1").removeClass("hide")
+  $("#choice2").removeClass("hide")
+  $("#choice3").removeClass("hide")
+  // append questions and answers
   $("#question-title").html(questions[0].title);
-  $("#choice1").html(questions[0].choices);
+  $("#choice1").html(questions[0].choices[0]);
+  $("#choice2").html(questions[0].choices[1]);
+  $("#choice3").html(questions[0].choices[2]);
   $("#choices").addClass("answer-buttons");
 
 }
