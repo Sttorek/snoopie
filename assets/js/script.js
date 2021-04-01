@@ -1,3 +1,6 @@
+$(document).ready(function(){
+
+
 // Arrays ------------------------------------------------------------------------------
 var dogQuotesArray = [
   {
@@ -48,11 +51,12 @@ i = 0;
 
 // Quiz Variables - Green
 var currentQuestionIndex = 0; 
+var personalityTitle = "";
 
 var questionsEl = $("#questions");
 var choicesEl = $("#choices");
 var submitBtn = $("#submit");
-var startBtn = $("#start");
+var startBtn = $("#startBtn");
 var zipcodeEl = $("#zipcode");
 var feedbackEl = $("#feedback");
 
@@ -112,14 +116,15 @@ fetch("https://api.petfinder.com/v2/oauth2/token", {
   // Personality Quiz Intro ------------------------------------------------------
   // var title = $("#title");
   // var personalityTitle = $("<h1>");
+  personalityIntro();
+  
   function personalityIntro(){
     var personalityTitle = $("<h1>").addClass(".title").text("Personality Quiz");
     var instructions = $("<p>").addClass(".instructions").text("Take the personality quiz to match with a dog near you!");
     $(".start").append(personalityTitle);
     $(".start").append(instructions);
-
   }
-  personalityIntro();
+  
 
   // Dog Name Generator 
   
@@ -144,15 +149,10 @@ function nameGen() {
 
 // Quiz Start function
 function startQuiz() {
-  // hide everything on home 
-  var homepageEl = $("#homepage");
-  homepageEl.attr("class", "hide");
-
   // show questions 
   questionsEl.removeAttr("class");
   getQuestion();
 }
-
 
 
 // Dog Quotes -----------------------------------------------------------------------
@@ -168,8 +168,16 @@ $(nameBtn).on("click", function() {
   nameGen();
 });
 
+startBtn.on("click", function () {
+  //clear out personalitytitle and instructions
+  console.log("this button was clicked");
+  $(".start").hide();
+  $("#startBtn").hide();
 
+  startQuiz();
+});
 
 
 // Function Calls -----------------------------------------------------------------
-startBtn.onclick = startQuiz;
+
+});
