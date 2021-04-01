@@ -175,16 +175,127 @@ function nameGen() {
     }
     console.log(dogNames);
   })
-}
-{/* <div id="questions" class="hide">
-          <h2 id="question-title"></h2>
-          <button id="choice1" class="choices hide btn btn-info"></button> */}
-
+};
 
 var currentIndex = 0;
 function getQuestion() {
 var currentQuestion = questionsArray[currentIndex];
 }
+
+function getQuestion1() {
+  questionsEl.addClass("show")
+  $("#choice1").removeClass("hide")
+  $("#choice2").removeClass("hide")
+  $("#choice3").removeClass("hide")
+  // append questions and answers
+  $("#question-title").html(questions[0].title);
+  $("#choice1").html(questions[0].choices[0]);
+  $("#choice2").html(questions[0].choices[1]);
+  $("#choice3").html(questions[0].choices[2]);
+  $("#choices").addClass("answer-buttons");
+
+  $("#choice1").on("click", function() {
+    getQuestion2();
+  });
+  $("#choice2").on("click", function() {
+    getQuestion2();
+  });
+  $("#choice3").on("click", function() {
+    getQuestion2();
+  });
+};
+
+function getQuestion2() {
+  
+  questionsEl.addClass("show")
+  $("#choice4").removeClass("hide")
+  // append questions and answers
+  $("#question-title").html(questions[1].title);
+  $("#choice1").html(questions[1].choices[0]);
+  $("#choice2").html(questions[1].choices[1]);
+  $("#choice3").html(questions[1].choices[2]);
+  $("#choice4").html(questions[1].choices[3]);
+  $("#choices").addClass("answer-buttons");
+
+  $("#choice1").on("click", function() {
+    getQuestion3();
+  });
+  $("#choice2").on("click", function() {
+    getQuestion3();
+  });
+  $("#choice3").on("click", function() {
+    getQuestion3();
+  });
+};
+
+
+function getQuestion3() {
+  
+  questionsEl.addClass("show")
+  $("#choice4").addClass("hide")
+  // append questions and answers
+  $("#question-title").html(questions[2].title);
+  $("#choice1").html(questions[2].choices[0]);
+  $("#choice2").html(questions[2].choices[1]);
+  $("#choice3").html(questions[2].choices[2]);
+  $("#choices").addClass("answer-buttons");
+
+  $("#choice1").on("click", function() {
+    getQuestion4();
+  });
+  $("#choice2").on("click", function() {
+    getQuestion4();
+  });
+  $("#choice3").on("click", function() {
+    getQuestion4();
+  });
+};
+
+function getQuestion4() {
+  
+  questionsEl.addClass("show")
+  // append questions and answers
+  $("#question-title").html(questions[3].title);
+  $("#choice1").html(questions[3].choices[0]);
+  $("#choice2").html(questions[3].choices[1]);
+  $("#choice3").html(questions[3].choices[2]);
+  $("#choices").addClass("answer-buttons");
+
+  $("#choice1").on("click", function() {
+    getQuestion5();
+  });
+  $("#choice2").on("click", function() {
+    getQuestion5();
+  });
+  $("#choice3").on("click", function() {
+    getQuestion5();
+  });
+};
+
+function getQuestion5() {
+  
+  questionsEl.addClass("show")
+  $("#choice3").addClass("hide")
+  // append questions and answers
+  $("#question-title").html(questions[4].title);
+  $("#choice1").html(questions[4].choices[0]);
+  $("#choice2").html(questions[4].choices[1]);
+  $("#choice3").html(questions[4].choices[2]);
+  $("#choices").addClass("answer-buttons");
+
+  $("#choice1").on("click", function() {
+    console.log("Whats Next?")
+  });
+  $("#choice2").on("click", function() {
+    console.log("Whats Next?")
+  });
+  $("#choice3").on("click", function() {
+    console.log("Whats Next?")
+  });
+};
+
+
+
 
 
 // function getQuestion1() {
@@ -231,7 +342,6 @@ $(nameBtn).on("click", function() {
 
 startBtn.on("click", function () {
   //clear out personalitytitle and instructions
-  console.log("this button was clicked");
   $(".start").hide();
   $("#startBtn").hide();
 
