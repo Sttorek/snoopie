@@ -1,5 +1,5 @@
 // Arrays ------------------------------------------------------------------------------
-var dogQuotes = [
+var dogQuotesArray = [
   {
     quote: "“The dog is a gentleman; I hope to go to his heaven, not man’s”",
     author: "~ Mark Twain",
@@ -23,9 +23,14 @@ var dogQuotes = [
   {
     quote: "'Happiness is a warm puppy.'",
     author: "~ Charles Shultz",
-  }
+  },
 
-]
+  {
+    quote: "'All his life he tried to be a good person. Many times, however, he failed. For after all, he was only human. He wasn't a dog.",
+    author: "~ Charles Shultz",
+  },
+
+],
 
 
 
@@ -33,11 +38,13 @@ var dogQuotes = [
 
 
 //Dom Variables------------------------------------------------------------------------
-var key = "oxrPyoy6v3XMn43E8m5y5ZVOEGAmTO52CKOvjV7CckXTDJvpjG";
+key = "oxrPyoy6v3XMn43E8m5y5ZVOEGAmTO52CKOvjV7CckXTDJvpjG";
 var secret = "AYuKkVCKqFIYCOxKzBWeihxy7lA7vSOReHMlLC5E";
+var listEl = $("#names-list");
+var nameBtn = $("#nameBtn");
 var dogNames = [];
-var listEl = $("#names-list")
-var nameBtn = $("#nameBtn")
+var dogQuotes = [];
+i = 0;
 
 
 
@@ -113,6 +120,12 @@ function nameGen() {
     console.log(dogNames);
   })
 }
+
+// Dog Quotes -----------------------------------------------------------------------
+for ( var i = 0; i < 1; i++){
+  dogQuotes.push(dogQuotesArray[Math.floor(Math.random() * dogQuotesArray.length)]);
+}
+console.log(dogQuotes);
 
 
 // Event Listeners ---------------------------------------------------------------
