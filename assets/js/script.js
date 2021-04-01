@@ -175,3 +175,4 @@ $(nameBtn).on("click", function() {
 
 // Function Calls -----------------------------------------------------------------
 dogQuoteGenerator();
+startBtn.onclick = startQuiz;

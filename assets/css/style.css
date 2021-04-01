@@ -28,7 +28,7 @@ li {
 }
 
 .aside {
-  width: 10%;
+  width: 9%;
   padding-left: 5px;
   margin-left: 5px;
   background-color: lightsteelblue;
@@ -48,6 +48,7 @@ li {
   padding-bottom: 25px;
   border-radius: 13px;
 }
+
 /* ID's -------------------------------------------------- */
 #search-container {
   background-color: rgb(253, 252, 252);
@@ -91,5 +92,5 @@ li {
 
 #favNames {
   color: orangered;
-  margin-left: 30px;
+  margin-left: 25px;
 }
