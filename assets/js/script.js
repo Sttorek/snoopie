@@ -46,7 +46,7 @@ var listEl = $("#names-list");
 var nameBtn = $("#nameBtn");
 
 // Quiz Variables - Green
-var currentQuestionIndex = 0; 
+// var currentQuestion = 0; 
 var personalityTitle = "";
 
 var questionsEl = $("#questions");
@@ -64,7 +64,7 @@ var dogQuotes = [];
 i = 0;
 
 
-var questions = [
+var questionsArray = [
   {
       // would measure user's energy level
     title: "How would active would you describe your lifestyle?",
@@ -176,21 +176,30 @@ function nameGen() {
     console.log(dogNames);
   })
 }
+{/* <div id="questions" class="hide">
+          <h2 id="question-title"></h2>
+          <button id="choice1" class="choices hide btn btn-info"></button> */}
 
 
-function getQuestion1() {
-  questionsEl.addClass("show")
-  $("#choice1").removeClass("hide")
-  $("#choice2").removeClass("hide")
-  $("#choice3").removeClass("hide")
-  // append questions and answers
-  $("#question-title").html(questions[0].title);
-  $("#choice1").html(questions[0].choices[0]);
-  $("#choice2").html(questions[0].choices[1]);
-  $("#choice3").html(questions[0].choices[2]);
-  $("#choices").addClass("answer-buttons");
-
+var currentIndex = 0;
+function getQuestion() {
+var currentQuestion = questionsArray[currentIndex];
 }
+
+
+// function getQuestion1() {
+//   questionsEl.addClass("show")
+//   $("#choice1").removeClass("hide")
+//   $("#choice2").removeClass("hide")
+//   $("#choice3").removeClass("hide")
+//   // append questions and answers
+//   $("#question-title").html(questions[0].title);
+//   $("#choice1").html(questions[0].choices[0]);
+//   $("#choice2").html(questions[0].choices[1]);
+//   $("#choice3").html(questions[0].choices[2]);
+//   $("#choices").addClass("answer-buttons");
+
+// }
 
 
 // Quiz Start function
