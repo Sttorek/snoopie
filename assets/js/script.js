@@ -109,6 +109,18 @@ fetch("https://api.petfinder.com/v2/oauth2/token", {
     console.log("something went wrong", err);
   });
 
+  // Personality Quiz Intro ------------------------------------------------------
+  // var title = $("#title");
+  // var personalityTitle = $("<h1>");
+  function personalityIntro(){
+    var personalityTitle = $("<h1>").addClass(".title").text("Personality Quiz");
+    var instructions = $("<p>").addClass(".instructions").text("Take the personality quiz to match with a dog near you!");
+    $(".start").append(personalityTitle);
+    $(".start").append(instructions);
+
+  }
+  personalityIntro();
+
   // Dog Name Generator 
   
 function nameGen() {
