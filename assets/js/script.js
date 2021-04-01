@@ -1,3 +1,5 @@
+$(document).ready(function(){
+
 // Arrays ------------------------------------------------------------------------------
 var dogQuotesArray = [
   {
@@ -45,11 +47,12 @@ var nameBtn = $("#nameBtn");
 
 // Quiz Variables - Green
 var currentQuestionIndex = 0; 
+var personalityTitle = "";
 
 var questionsEl = $("#questions");
 var choicesEl = $("#choices");
 var submitBtn = $("#submit");
-var startBtn = $("#start");
+var startBtn = $("#startBtn");
 var zipcodeEl = $("#zipcode");
 var feedbackEl = $("#feedback");
 
@@ -110,8 +113,9 @@ fetch("https://api.petfinder.com/v2/oauth2/token", {
   });
 
   // Personality Quiz Intro ------------------------------------------------------
-  // var title = $("#title");
-  // var personalityTitle = $("<h1>");
+   personalityIntro();
+    // var title = $("#title");
+    // var personalityTitle = $("<h1>");
   function personalityIntro(){
     var personalityTitle = $("<h1>").addClass(".title").text("Personality Quiz");
     var instructions = $("<p>").addClass(".instructions").text("Take the personality quiz to match with a dog near you!");
@@ -119,7 +123,7 @@ fetch("https://api.petfinder.com/v2/oauth2/token", {
     $(".start").append(instructions);
 
   }
-  personalityIntro();
+
 
   // Dog Name Generator 
   
@@ -149,11 +153,6 @@ function nameGen() {
 
 // Quiz Start function
 function startQuiz() {
-  // hide everything on home 
-  var homepageEl = $("#homepage");
-  homepageEl.attr("class", "hide");
-
-  // show questions 
   questionsEl.removeAttr("class");
   getQuestion();
 }
@@ -179,8 +178,18 @@ $(nameBtn).on("click", function() {
 // Can we give those buttons an ID or a class-name and on click, store that data in local storage?
 // Ok, once that data is stored, run nameGen() again to generate the next 5 random names. 
 
+startBtn.on("click", function () {
+  //clear out personalitytitle and instructions
+  console.log("this button was clicked");
+  $(".start").hide();
+  $("#startBtn").hide();
+
+  startQuiz();
+});
+
 
 
 // Function Calls -----------------------------------------------------------------
 dogQuoteGenerator();
-startBtn.onclick = startQuiz;
+
+});
