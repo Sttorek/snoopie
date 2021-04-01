@@ -42,9 +42,6 @@ key = "oxrPyoy6v3XMn43E8m5y5ZVOEGAmTO52CKOvjV7CckXTDJvpjG";
 var secret = "AYuKkVCKqFIYCOxKzBWeihxy7lA7vSOReHMlLC5E";
 var listEl = $("#names-list");
 var nameBtn = $("#nameBtn");
-var dogNames = [];
-var dogQuotes = [];
-i = 0;
 
 // Quiz Variables - Green
 var currentQuestionIndex = 0; 
@@ -57,8 +54,11 @@ var zipcodeEl = $("#zipcode");
 var feedbackEl = $("#feedback");
 
 
-// JavaScript Variables ---------------------------------------------------------------
 
+// JavaScript Variables ---------------------------------------------------------------
+var dogNames = [];
+var dogQuotes = [];
+i = 0;
 
 
 // function Definitions --------------------------------------------------------------
@@ -156,11 +156,13 @@ function startQuiz() {
 
 
 // Dog Quotes -----------------------------------------------------------------------
+function dogQuoteGenerator() {
 for ( var i = 0; i < 1; i++){
   dogQuotes.push(dogQuotesArray[Math.floor(Math.random() * dogQuotesArray.length)]);
 }
-console.log(dogQuotes);
-
+$("#person").append(dogQuotes[0].author);
+$("#quote").append(dogQuotes[0].quote);
+};
 
 // Event Listeners ---------------------------------------------------------------
 $(nameBtn).on("click", function() {
@@ -172,4 +174,5 @@ $(nameBtn).on("click", function() {
 
 
 // Function Calls -----------------------------------------------------------------
+dogQuoteGenerator();
 startBtn.onclick = startQuiz;
