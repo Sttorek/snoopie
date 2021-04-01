@@ -106,7 +106,9 @@ function nameGen() {
     // console.log(data.contents.names[0]);
     for (var i = 0; i < 5; i++) {
       dogNames.push(data.contents.names[Math.floor(Math.random() * data.contents.names.length)]);
-      listEl.append("<li>" + dogNames[i] + "</li>");
+      var div = $("<div>").addClass("list-container");
+      var li = $("<li>").text(dogNames[i])
+      listEl.append(div.append(li));
     }
     console.log(dogNames);
   })
