@@ -46,6 +46,15 @@ var dogNames = [];
 var dogQuotes = [];
 i = 0;
 
+// Quiz Variables - Green
+var currentQuestionIndex = 0; 
+
+var questionsEl = $("#questions");
+var choicesEl = $("#choices");
+var submitBtn = $("#submit");
+var startBtn = $("#start");
+var zipcodeEl = $("#zipcode");
+var feedbackEl = $("#feedback");
 
 
 // JavaScript Variables ---------------------------------------------------------------
@@ -120,6 +129,19 @@ function nameGen() {
     console.log(dogNames);
   })
 }
+
+// Quiz Start function
+function startQuiz() {
+  // hide everything on home 
+  var homepageEl = $("#homepage");
+  homepageEl.attr("class", "hide");
+
+  // show questions 
+  questionsEl.removeAttr("class");
+  getQuestion();
+}
+
+
 
 // Dog Quotes -----------------------------------------------------------------------
 for ( var i = 0; i < 1; i++){
