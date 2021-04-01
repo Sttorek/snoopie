@@ -64,6 +64,34 @@ var dogQuotes = [];
 i = 0;
 
 
+var questions = [
+  {
+      // would measure user's energy level
+    title: "How would active would you describe your lifestyle?",
+    choices: ["low", "moderate", "high"],
+  },
+  {
+      // would measure user's dog size
+    title: "What kind of home do you live in?",
+    choices: ["apartment", "house", "loft", "other"],
+  },
+  {
+      // would measure user's affection needs
+    title: "How dependent would you say to other people or things?",
+    choices: ["low", "moderate", "high"],
+  },
+  { 
+      // would measure user's dog dander
+    title: "How clean would you say you are?",
+    choices: ["dirty", "clean once a week", "OCD"],
+  },
+  {
+      // would measure user's dog dander
+    title: "Are you sensitive to dander?",
+    choices: ["Yes", "No"],
+  }
+];
+
 // function Definitions --------------------------------------------------------------
 // API token fetch to access page
 
@@ -150,11 +178,20 @@ function nameGen() {
 }
 
 
+function getQuestion1() {
+  questionsEl.addClass("show")
+  // questionAsked.innerHTML = "thththth";
+  $("#question-title").html(questions[0].title);
+  $("#choice1").html(questions[0].choices);
+  $("#choices").addClass("answer-buttons");
+
+}
+
 
 // Quiz Start function
 function startQuiz() {
   questionsEl.removeAttr("class");
-  getQuestion();
+  getQuestion1();
 }
 
 
