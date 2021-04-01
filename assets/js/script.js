@@ -172,3 +172,4 @@ $(nameBtn).on("click", function() {
 
 
 // Function Calls -----------------------------------------------------------------
+startBtn.onclick = startQuiz;
