@@ -135,12 +135,17 @@ function nameGen() {
     for (var i = 0; i < 5; i++) {
       dogNames.push(data.contents.names[Math.floor(Math.random() * data.contents.names.length)]);
       var div = $("<div>").addClass("list-container");
+      //Button HTML elements? 
+      // In that button tag, data- attributes 
+      // Store the dogNames[i] in that data- attribute
       var li = $("<li>").text(dogNames[i])
       listEl.append(div.append(li));
     }
     console.log(dogNames);
   })
 }
+
+
 
 // Quiz Start function
 function startQuiz() {
@@ -168,6 +173,9 @@ $(nameBtn).on("click", function() {
   nameGen();
 });
 
+//Another Event Listener that listens to what is clicked? 
+// Can we give those buttons an ID or a class-name and on click, store that data in local storage?
+// Ok, once that data is stored, run nameGen() again to generate the next 5 random names. 
 
 
 
