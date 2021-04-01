@@ -2,11 +2,13 @@
 
 /* elements ----------------------------------------------*/
 section {
-  margin-left: 200px;
+  margin-left: 220px;
 }
 li {
   list-style-type: none;
 }
+
+
 /* classes ----------------------------------------------- */
 .result {
   border-bottom: 1px dashed black;
@@ -26,13 +28,21 @@ li {
 }
 
 .aside {
-  width: 10%;
+  width: 13%;
   padding-left: 5px;
   margin-left: 5px;
   background-color: lightsteelblue;
   height: 100%;
   position: absolute;
   float: left;
+}
+
+.list-container {
+  background-color: white;
+  border: 1px solid black;
+  height: 20px;
+  width: 90px;
+  margin-top: 5px;
 }
 /* ID's -------------------------------------------------- */
 #search-container {
@@ -57,3 +67,8 @@ li {
  font-size: 24px;
 }
 
+#nameBtn {
+  margin-top: 20px;
+  margin-left: 20px;
+  
+}
