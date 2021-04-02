@@ -34,8 +34,44 @@ $(document).ready(function () {
         author: "~ Charles Shultz",
       },
     ],
-    //Dom Variables------------------------------------------------------------------------
-    key = "oxrPyoy6v3XMn43E8m5y5ZVOEGAmTO52CKOvjV7CckXTDJvpjG";
+    print1 = $("#print1");
+  print2 = $("#print2");
+  print3 = $("#print3");
+  print4 = $("#print4");
+  print5 = $("#print5");
+  print6 = $("#print6");
+
+  var pawPrints = [print1, print2, print3, print4, print5, print6];
+  function startImageTransition() {
+    countdown = setInterval(
+      function () {
+        i === 0
+        console.log(pawPrints[i]);
+        pawPrints[i++].show();
+        // print2.show();
+        // print3.show();
+        // print4.show();
+        // print5.show();
+        // print6.show();
+        if (pawPrints[i++] >= 5) {
+      //  clearInterval(countdown);
+      console.log("bitchassss")
+      }
+      },
+      
+      
+      2000);
+      pawPrints[i].hide();
+      print2.hide();
+      print3.hide();
+      print4.hide();
+      print5.hide();
+      print6.hide();
+    }
+
+  startImageTransition();
+  //Dom Variables------------------------------------------------------------------------
+  key = "oxrPyoy6v3XMn43E8m5y5ZVOEGAmTO52CKOvjV7CckXTDJvpjG";
   var secret = "AYuKkVCKqFIYCOxKzBWeihxy7lA7vSOReHMlLC5E";
   var token;
   var listEl = $("#names-list");
@@ -299,7 +335,7 @@ $(document).ready(function () {
     startQuiz();
   });
 
-  $(document).on("click","#submit-button", function (event) {
+  $(document).on("click", "#submit-button", function (event) {
     event.preventDefault();
     $("#quiz-container").addClass("hide");
     zipcodeInput = zipcodeEl.val();
