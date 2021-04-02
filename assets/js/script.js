@@ -301,6 +301,7 @@ $(document).ready(function () {
 
   $(document).on("click","#submit-button", function (event) {
     event.preventDefault();
+    $("#quiz-container").addClass("hide");
     zipcodeInput = zipcodeEl.val();
     console.log(answersArray[1]);
     var dogSize;
