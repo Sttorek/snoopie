@@ -269,12 +269,16 @@ $(document).ready(function () {
       // console.log("these are the results");
       $("#question-title").hide();
       $("#end-screen").show();
+      getDog();
     }
   });
 
   //Get Dog by Zipcode function
 
-  function getDog() {}
+  function getDog() {
+    $("#question-title").hide();
+    $("#zipcodeForm").removeAttr("class");
+  }
 
   // Moves choosen dogNames to favorites list ---------------------------------------------
 
@@ -300,7 +304,7 @@ $(document).ready(function () {
   // }
 
   // Dog Quotes -----------------------------------------------------------------------
-
+  // set interval to rotate quotes
   function dogQuoteGenerator() {
     for (var i = 0; i < 1; i++) {
       dogQuotes.push(
@@ -323,16 +327,17 @@ $(document).ready(function () {
   // Ok, once that data is stored, run nameGen() again to generate the next 5 random names.
 
   startBtn.on("click", function () {
-    //clear out personalitytitle and instructions
+    //clear out personality title and instructions
     $(".start").hide();
     $("#startBtn").hide();
-    $("#zipcodeForm").removeAttr("class");
+    // $("#zipcodeForm").removeAttr("class");
 
     startQuiz();
   });
 
   $(document).on("click", "#submit-button", function (event) {
     event.preventDefault();
+    $("#quiz-container").addClass("hide");
     zipcodeInput = zipcodeEl.val();
     console.log(answersArray[1]);
     var dogSize;
