@@ -94,6 +94,32 @@ main div:hover {
   align-items: center;
 }
 
+
+
+#paw-box {
+  display: flex;
+  justify-content: space-between;
+  
+}
+
+.paw {
+  animation: fadeIn 4s;
+  height: 30px;
+  width: 30px;
+  margin-right: 150px;
+  
+}
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 /* ID's -------------------------------------------------- */
 
 #search-container {
