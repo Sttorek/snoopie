@@ -121,8 +121,8 @@ li {
 #fav-names {
   font-family: Georgia, 'Times New Roman', Times, serif;
   color: red;
-  margin-left: 25px;
   font-size: 20px;
+  padding: 0px;
 }
 
 #fav-names-container {
@@ -134,4 +134,8 @@ li {
 
 #done-screen {
   text-align: center;
+}
+
+#fav-names-list {
+  padding: 0px;
 }
