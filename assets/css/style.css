@@ -1,18 +1,30 @@
 /* universal -------------------------------------------- */
 
 /* elements ----------------------------------------------*/
-section {
-  margin-left: 220px;
-}
+
+
+
 
 li {
   list-style-type: none;
 }
 
+main div:hover{
+ border: 2px solid black;  
+ opacity: 0.9;
+}
+
+#page-container {
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 190px;
+}
 
 /* classes ----------------------------------------------- */
 .result {
-  border-bottom: 1px dashed black;
+  border: 1px solid black;
 }
 
 .wrapper {
@@ -66,20 +78,30 @@ li {
   text-align: center;
 }
 
+
+.result {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+
 /* ID's -------------------------------------------------- */
 #search-container {
   background-color: rgb(253, 252, 252);
-  height: 500px;
+  height: 1000px;
   width: 1000px;
   display: flex;
-  justify-content: space-evenly;
-  position: relative;
+  justify-content: center;
+  margin-top: 80px;
+  /* position: relative;
   margin-left: 400px;
-  margin-top: 100px;
-  overflow: scroll;
+  margin-top: 100px; */
   border: 1px solid black;
   
 }
+
 
 #aside-container {
   display: flex;
