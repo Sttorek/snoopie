@@ -45,7 +45,7 @@ $(document).ready(function () {
   function startImageTransition() {
     countdown = setInterval(
       function () {
-        i === 0
+        i === 0;
         console.log(pawPrints[i]);
         pawPrints[i++].show();
         // print2.show();
@@ -54,20 +54,20 @@ $(document).ready(function () {
         // print5.show();
         // print6.show();
         if (pawPrints[i++] >= 5) {
-      //  clearInterval(countdown);
-      console.log("bitchassss")
-      }
+          //  clearInterval(countdown);
+          console.log("bitchassss");
+        }
       },
-      
-      
-      2000);
-      pawPrints[i].hide();
-      print2.hide();
-      print3.hide();
-      print4.hide();
-      print5.hide();
-      print6.hide();
-    }
+
+      2000
+    );
+    pawPrints[i].hide();
+    print2.hide();
+    print3.hide();
+    print4.hide();
+    print5.hide();
+    print6.hide();
+  }
 
   startImageTransition();
   //Dom Variables------------------------------------------------------------------------
