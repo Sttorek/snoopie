@@ -5,6 +5,7 @@
 
 /* elements ----------------------------------------------*/
 
+
 li {
   list-style-type: none;
 }
@@ -22,6 +23,7 @@ main div:hover {
 }
 
 /* classes ----------------------------------------------- */
+
 .result {
   border: 1px solid black;
 }
@@ -46,7 +48,6 @@ main div:hover {
   background-color: lightsteelblue;
   height: 100%;
   position: absolute;
-  /* float: left; */
   justify-content: center;
 }
 
@@ -85,6 +86,7 @@ main div:hover {
 }
 
 /* ID's -------------------------------------------------- */
+
 #search-container {
   background-color: rgb(253, 252, 252);
   height: 1000px;
@@ -92,9 +94,6 @@ main div:hover {
   display: flex;
   justify-content: center;
   margin-top: 80px;
-  /* position: relative;
-  margin-left: 400px;
-  margin-top: 100px; */
   border: 1px solid black;
 }
 
@@ -153,6 +152,28 @@ main div:hover {
 
 #fav-names-list {
   padding: 0px;
+}
+#page-container {
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 190px;
+}
+
+#quiz-container {
+  display: flex;
+  justify-content: center;
+  background: url(https://image.freepik.com/free-vector/seamless-pattern-with-heads-different-breeds-dogs-corgi-pug-chihuahua-terrier-husky-pomeranian_192280-204.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+#survey-box div {
+  background-color: #219ebc;
+  width: 650px;
 }
 
 #title {
