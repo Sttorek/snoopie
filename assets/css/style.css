@@ -181,8 +181,11 @@ main div:hover {
 }
 
 #survey-box div {
-  background-color: #219ebc;
+  background-color: #023047;
+  color: #8ECAE6;
   width: 650px;
+  height: 10px;
+  border-radius: 2px;
 }
 
 #title {
