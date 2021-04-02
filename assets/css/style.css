@@ -1,18 +1,40 @@
 /* universal -------------------------------------------- */
-
-/* elements ----------------------------------------------*/
-section {
-  margin-left: 220px;
+* {
+  font-family: "Source Code Pro", monospace;
 }
 
+/* elements ----------------------------------------------*/
+
+html {
+  background: url(https://image.freepik.com/free-vector/seamless-pattern-with-heads-different-breeds-dogs-corgi-pug-chihuahua-terrier-husky-pomeranian_192280-204.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+p {
+  margin: auto;
+}
 li {
   list-style-type: none;
 }
 
+main div:hover {
+  border: 2px solid black;
+  opacity: 0.9;
+}
+
+#page-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 190px;
+}
 
 /* classes ----------------------------------------------- */
+
 .result {
-  border-bottom: 1px dashed black;
+  border: 1px solid black;
 }
 
 .wrapper {
@@ -35,7 +57,6 @@ li {
   background-color: lightsteelblue;
   height: 100%;
   position: absolute;
-  /* float: left; */
   justify-content: center;
 }
 
@@ -53,32 +74,36 @@ li {
   display: block;
 }
 
-.sidenav-pg2 {
-  height: 100%; 
-  width: 190px; 
-  position: fixed; 
-  z-index: 1; 
-  top: 0; 
+.sideNav-pg2 {
+  height: 100%;
+  width: 190px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
   left: 0;
-  background-color: lightsteelblue; 
-  overflow-x: hidden; 
+  background-color: lightsteelblue;
+  overflow-x: hidden;
   margin-top: 55px;
   text-align: center;
 }
 
+.result {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
 /* ID's -------------------------------------------------- */
+
 #search-container {
   background-color: rgb(253, 252, 252);
-  height: 500px;
+  height: 1000px;
   width: 1000px;
   display: flex;
-  justify-content: space-evenly;
-  position: relative;
-  margin-left: 400px;
-  margin-top: 100px;
-  overflow: scroll;
+  justify-content: center;
+  margin-top: 80px;
   border: 1px solid black;
-  
 }
 
 #aside-container {
@@ -93,16 +118,16 @@ li {
 }
 
 #quote-box {
- position: fixed;
- bottom: 0;
- right: 0;
- display: flex;
- justify-content: flex-end;
- font-size: 20px;
- padding-bottom: 3px;
- padding-right: 20px;
- background-color: rgb(247, 247, 247);
- width: 100%;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  justify-content: flex-end;
+  font-size: 20px;
+  padding-bottom: 3px;
+  padding-right: 20px;
+  background-color: rgb(247, 247, 247);
+  width: 100%;
 }
 
 #nameBtn {
@@ -119,7 +144,6 @@ li {
 }
 
 #fav-names {
-  font-family: Georgia, 'Times New Roman', Times, serif;
   color: red;
   font-size: 20px;
   padding: 0px;
@@ -127,7 +151,6 @@ li {
 
 #fav-names-container {
   text-align: center;
-  font-family: Georgia, 'Times New Roman', Times, serif;
   color: black;
   font-size: 20px;
 }
@@ -138,4 +161,35 @@ li {
 
 #fav-names-list {
   padding: 0px;
+}
+#page-container {
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 190px;
+}
+
+#quiz-container {
+  display: flex;
+  justify-content: center;
+  background: url(https://image.freepik.com/free-vector/seamless-pattern-with-heads-different-breeds-dogs-corgi-pug-chihuahua-terrier-husky-pomeranian_192280-204.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+#survey-box div {
+  background-color: #219ebc;
+  width: 650px;
+}
+
+#title {
+  font-family: "Kiwi Maru", serif;
+}
+
+#quote {
+  font-family: "Dancing Script", cursive;
+  font-size: 25px;
 }
