@@ -61,31 +61,32 @@
     </div>
 
       <!------------------- Main ----------------->
-
-    <section>
-      <div class="wrapper">
-        <div id="start-screen" class="start"></div>
-        <div class="start-quizBtn text-center">
-          <button id="startBtn" class="btn btn-primary">Start Quiz</button>
+    <div id="quiz-container">
+      <section id="survey-box">
+        <div class="wrapper">
+          <div id="start-screen" class="start"></div>
+          <div class="start-quizBtn text-center">
+            <button id="startBtn" class="btn btn-primary">Start Quiz</button>
+          </div>
+  
+          <form class="hide">
+            <label for="zipcode">Enter your Zipcode</label><br />
+            <input type="text" id="zipcode" name="zipcode" value="30022" /><br />
+            <input type="submit" value="Submit" />
+          </form>
+  
+          <div id="questions" class="hide">
+            <h2 id="question-title"></h2>
+          </div>
+  
+          <div id="end-screen" class="hide">
+            <h2 id="done-screen">All done!</h2>
+          </div>
+  
+          <div id="match-dog" class="match-dog hide"></div>
         </div>
-
-        <form class="hide">
-          <label for="zipcode">Enter your Zipcode</label><br />
-          <input type="text" id="zipcode" name="zipcode" value="30022" /><br />
-          <input type="submit" value="Submit" />
-        </form>
-
-        <div id="questions" class="hide">
-          <h2 id="question-title"></h2>
-        </div>
-
-        <div id="end-screen" class="hide">
-          <h2 id="done-screen">All done!</h2>
-        </div>
-
-        <div id="match-dog" class="match-dog hide"></div>
-      </div>
-    </section>
+      </section>
+    </div>
 
  <!---------------------- Footer ------------------------->
 
