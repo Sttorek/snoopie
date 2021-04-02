@@ -119,8 +119,16 @@ li {
 }
 
 #fav-names {
+  font-family: Georgia, 'Times New Roman', Times, serif;
   color: red;
   margin-left: 25px;
+  font-size: 20px;
+}
+
+#fav-names-container {
+  text-align: center;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color: black;
   font-size: 20px;
 }
 
