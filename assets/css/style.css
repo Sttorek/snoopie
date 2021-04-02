@@ -9,6 +9,7 @@ li {
   list-style-type: none;
 }
 
+
 /* classes ----------------------------------------------- */
 .result {
   border-bottom: 1px dashed black;
@@ -51,6 +52,20 @@ li {
 .btn-info {
   display: block;
 }
+
+.sidenav-pg2 {
+  height: 100%; 
+  width: 190px; 
+  position: fixed; 
+  z-index: 1; 
+  top: 0; 
+  left: 0;
+  background-color: lightsteelblue; 
+  overflow-x: hidden; 
+  margin-top: 55px;
+  text-align: center;
+}
+
 /* ID's -------------------------------------------------- */
 #search-container {
   background-color: rgb(253, 252, 252);
@@ -109,17 +124,6 @@ li {
   font-size: 20px;
 }
 
-.sidenav-pg2 {
-  height: 100%; 
-  width: 190px; 
-  position: fixed; 
-  z-index: 1; 
-  top: 0; 
-  left: 0;
-  background-color: lightsteelblue; 
-  overflow-x: hidden; 
-  margin-top: 55px;
+#done-screen {
   text-align: center;
-  
 }
-
