@@ -12,6 +12,11 @@ html {
   -o-background-size: cover;
   background-size: cover;
 }
+
+body {
+  background-color: transparent;
+}
+
 p {
   margin: auto;
 }
@@ -38,8 +43,10 @@ main div:hover {
 }
 
 .wrapper {
+  display: block;
   margin: 100px auto 0 auto;
   max-width: 600px;
+  align-items: center;
 }
 
 .hide {
@@ -171,21 +178,17 @@ main div:hover {
 }
 
 #quiz-container {
-  display: flex;
-  justify-content: center;
-  background: url(https://image.freepik.com/free-vector/seamless-pattern-with-heads-different-breeds-dogs-corgi-pug-chihuahua-terrier-husky-pomeranian_192280-204.jpg) no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
-
-#survey-box div {
+  margin: auto;
   background-color: #023047;
   color: #8ECAE6;
-  width: 650px;
+  width: 50%;
   height: 200px;
-  border-radius: 2px;
+  border-radius: 15px;
+}
+
+#startBtn {
+  position: relative;
+  top: 30px;
 }
 
 #title {
