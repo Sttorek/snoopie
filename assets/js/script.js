@@ -41,35 +41,7 @@ $(document).ready(function () {
   print5 = $("#print5");
   print6 = $("#print6");
 
-  var pawPrints = [print1, print2, print3, print4, print5, print6];
-  function startImageTransition() {
-    countdown = setInterval(
-      function () {
-        i === 0
-        console.log(pawPrints[i]);
-        pawPrints[i++].show();
-        // print2.show();
-        // print3.show();
-        // print4.show();
-        // print5.show();
-        // print6.show();
-        if (pawPrints[i++] >= 5) {
-      //  clearInterval(countdown);
-      console.log("bitchassss")
-      }
-      },
-      
-      
-      2000);
-      pawPrints[i].hide();
-      print2.hide();
-      print3.hide();
-      print4.hide();
-      print5.hide();
-      print6.hide();
-    }
 
-  startImageTransition();
   //Dom Variables------------------------------------------------------------------------
   key = "oxrPyoy6v3XMn43E8m5y5ZVOEGAmTO52CKOvjV7CckXTDJvpjG";
   var secret = "AYuKkVCKqFIYCOxKzBWeihxy7lA7vSOReHMlLC5E";
@@ -126,7 +98,35 @@ $(document).ready(function () {
   ];
 
   // function Definitions --------------------------------------------------------------
+  var pawPrints = [print1, print2, print3, print4, print5, print6];
+  function startImageTransition() {
+    countdown = setInterval(
+      function () {
+        i === 0
+        console.log(pawPrints[i]);
+        pawPrints[i++].show();
+        // print2.show();
+        // print3.show();
+        // print4.show();
+        // print5.show();
+        // print6.show();
+        if (pawPrints[i++] >= 5) {
+      //  clearInterval(countdown);
+      console.log("bitchassss")
+      }
+      },
+      
+      
+      2000);
+      pawPrints[i].hide();
+      print2.hide();
+      print3.hide();
+      print4.hide();
+      print5.hide();
+      print6.hide();
+    }
 
+  startImageTransition();
   // API token fetch to access page-----------------------------------------------
 
   function firstFetch(token, zipcode, dogSize) {
