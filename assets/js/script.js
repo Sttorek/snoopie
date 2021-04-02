@@ -37,6 +37,7 @@ $(document).ready(function () {
     //Dom Variables------------------------------------------------------------------------
     key = "oxrPyoy6v3XMn43E8m5y5ZVOEGAmTO52CKOvjV7CckXTDJvpjG";
   var secret = "AYuKkVCKqFIYCOxKzBWeihxy7lA7vSOReHMlLC5E";
+  var token;
   var listEl = $("#names-list");
   var nameBtn = $("#nameBtn");
 
@@ -48,8 +49,11 @@ $(document).ready(function () {
   var choicesEl = $("#choices");
   var submitBtn = $("#submit");
   var startBtn = $("#startBtn");
+  var zipcodeForm = $("#zipcodeForm");
   var zipcodeEl = $("#zipcode");
   var feedbackEl = $("#feedback");
+
+  var zipcodeInput;
 
   // JavaScript Variables ---------------------------------------------------------------
   var dogNames = [];
@@ -89,8 +93,12 @@ $(document).ready(function () {
 
   // API token fetch to access page-----------------------------------------------
 
-  function firstFetch(token) {
-    var queryURL = "https://api.petfinder.com/v2/animals?breed=pug";
+  function firstFetch(token, zipcode, dogSize) {
+    var queryURL =
+      "https://api.petfinder.com/v2/animals?distance=50&location=" +
+      zipcode +
+      "&size=" +
+      dogSize;
 
     fetch(queryURL, {
       headers: {
@@ -102,11 +110,25 @@ $(document).ready(function () {
       })
       .then(function (data) {
         console.log(data);
+        renderResults(data.animals);
+        var animalsAndZipcode = data.animals.filter(function (animal) {
+          //returns a boolean
+          return animal.contact.address.postcode === zipcodeInput;
+        });
+        console.log(animalsAndZipcode);
+        // var zipcodeKey = data.animals[0].contact.address.postcode;
+        // console.log(zipcodeKey);
       })
       .catch(function (err) {
         // Log any errors
         console.log("something went wrong", err);
       });
+  }
+  //save results in localstorage then run renderResults
+  function renderResults(data) {
+    for (var i = 0; i < data.length; i++) {
+      console.log("name", data[i].name);
+    }
   }
 
   // API pet fetch to get data
@@ -129,7 +151,7 @@ $(document).ready(function () {
     .then(function (data) {
       // Log the API data
       console.log("token", data);
-      firstFetch(data.access_token);
+      token = data.access_token;
     })
     .catch(function (err) {
       // Log any errors
@@ -214,6 +236,10 @@ $(document).ready(function () {
     }
   });
 
+  //Get Dog by Zipcode function
+
+  function getDog() {}
+
   // Moves choosen dogNames to favorites list ---------------------------------------------
 
   $("#names-list").on("click", ".list-names", function (event) {
@@ -229,6 +255,13 @@ $(document).ready(function () {
     questionsEl.removeAttr("class");
     getQuestion();
   }
+
+  // Quiz End function---------------------------------------------------------
+
+  // function endQuiz() {
+  //   zipcodeEl.removeAttr("class");
+  //   getDog();
+  // }
 
   // Dog Quotes -----------------------------------------------------------------------
 
@@ -257,8 +290,23 @@ $(document).ready(function () {
     //clear out personalitytitle and instructions
     $(".start").hide();
     $("#startBtn").hide();
+    $("#zipcodeForm").removeAttr("class");
 
     startQuiz();
+  });
+
+  $(document).on("click","#submit-button", function (event) {
+    event.preventDefault();
+    zipcodeInput = zipcodeEl.val();
+    console.log(answersArray[1]);
+    var dogSize;
+    if (answersArray[1] === "house") {
+      dogSize = "large";
+    } else {
+      dogSize = "small";
+    }
+    firstFetch(token, zipcodeInput, dogSize);
+    console.log(zipcodeInput);
   });
 
   // Function Calls -----------------------------------------------------------------
