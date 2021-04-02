@@ -48,7 +48,9 @@ li {
   padding-bottom: 25px;
   border-radius: 13px;
 }
-
+.btn-info {
+  display: block;
+}
 /* ID's -------------------------------------------------- */
 #search-container {
   background-color: rgb(253, 252, 252);
@@ -68,6 +70,11 @@ li {
   display: flex;
   justify-content: center;
   background-color: blueviolet;
+}
+
+#questions {
+  text-align: center;
+  align-items: center;
 }
 
 #quote-box {
@@ -96,9 +103,10 @@ li {
   margin-top: 10px;
 }
 
-#favNames {
-  color: orangered;
+#fav-names {
+  color: red;
   margin-left: 25px;
+  font-size: 20px;
 }
 
 .sidenav-pg2 {
