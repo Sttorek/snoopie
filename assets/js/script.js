@@ -171,11 +171,23 @@ function nameGen() {
       // In that button tag, data- attributes 
       // Store the dogNames[i] in that data- attribute
       var li = $("<li>").text(dogNames[i])
+      li.addClass("list-names")
       listEl.append(div.append(li));
+
+
+
     }
     console.log(dogNames);
   })
 };
+
+$("#names-list").on("click", ".list-names", function(event) {
+  event.preventDefault()
+  console.log("hello list names")
+  dogNames = [];
+  $("#fav-names-list").append(this)
+
+});
 
 
 function getQuestion1() {
@@ -335,3 +347,4 @@ startBtn.on("click", function () {
 dogQuoteGenerator();
 
 });
+
