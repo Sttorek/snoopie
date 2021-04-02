@@ -174,6 +174,7 @@ $(document).ready(function () {
           li.addClass("list-names");
           listEl.append(div.append(li));
         }
+        console.log(data.contents.names);
         console.log(dogNames);
       });
   }
@@ -181,22 +182,25 @@ $(document).ready(function () {
   // Question and answers Loop ----------------------------------------------------
 
   function getQuestion() {
-    var currentQuestion = questionsArray[currentIndex];
     $("#question-title").text(questionsArray[currentIndex].title);
-    console.log(currentQuestion);
     for (var i = 0; i < questionsArray[currentIndex].choices.length; i++) {
-      $("#question-title").append(
+      var answerButton = $(
         "<button class='btn btn-info'>" +
           questionsArray[currentIndex].choices[i] +
           "</button>"
       );
-      console.log(questionsArray[currentIndex]);
+      answerButton.val(questionsArray[currentIndex].choices[i]);
+      $("#question-title").append(answerButton);
+      console.log(questionsArray[currentIndex].choices[i]);
     }
   }
-
+  var answersArray = [];
   $("#question-title").on("click", ".btn", function (event) {
+    var answers = $(this).val();
+    answersArray.push(answers);
+    console.log(answersArray);
     event.preventDefault();
-    // console.log("hello list names");
+
     currentIndex++;
     // getQuestion();
     if (currentIndex < questionsArray.length) {
@@ -209,6 +213,8 @@ $(document).ready(function () {
       $("#end-screen").show();
     }
   });
+
+  // Moves choosen dogNames to favorites list ---------------------------------------------
 
   $("#names-list").on("click", ".list-names", function (event) {
     event.preventDefault();
@@ -225,7 +231,7 @@ $(document).ready(function () {
   }
 
   // Dog Quotes -----------------------------------------------------------------------
-  
+
   function dogQuoteGenerator() {
     for (var i = 0; i < 1; i++) {
       dogQuotes.push(
