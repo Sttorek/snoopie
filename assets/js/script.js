@@ -54,6 +54,7 @@ $(document).ready(function () {
   // JavaScript Variables ---------------------------------------------------------------
   var dogNames = [];
   var dogQuotes = [];
+  var currentIndex = 0;
   i = 0;
 
   var questionsArray = [
@@ -85,7 +86,8 @@ $(document).ready(function () {
   ];
 
   // function Definitions --------------------------------------------------------------
-  // API token fetch to access page
+
+  // API token fetch to access page-----------------------------------------------
 
   function firstFetch(token) {
     var queryURL = "https://api.petfinder.com/v2/animals?breed=pug";
@@ -135,9 +137,8 @@ $(document).ready(function () {
     });
 
   // Personality Quiz Intro ------------------------------------------------------
+
   personalityIntro();
-  // var title = $("#title");
-  // var personalityTitle = $("<h1>");
   function personalityIntro() {
     var personalityTitle = $("<h1>")
       .addClass(".title")
@@ -149,7 +150,7 @@ $(document).ready(function () {
     $(".start").append(instructions);
   }
 
-  // Dog Name Generator
+  // Dog Name Generator-------------------------------------------------------------
 
   function nameGen() {
     listEl.empty();
@@ -159,8 +160,6 @@ $(document).ready(function () {
         return response.json();
       })
       .then(function (data) {
-        // console.log(data);
-        // console.log(data.contents.names[0]);
         for (var i = 0; i < 5; i++) {
           dogNames.push(
             data.contents.names[
@@ -179,33 +178,18 @@ $(document).ready(function () {
       });
   }
 
-  {
-    /* <div id="questions" class="hide">
-          <h2 id="question-title"></h2>
-          <button class="answerBtn" class="choices hide btn btn-info"></button> */
-  }
-
-  var currentIndex = 0;
+  // Question and answers Loop ----------------------------------------------------
 
   function getQuestion() {
     var currentQuestion = questionsArray[currentIndex];
     $("#question-title").text(questionsArray[currentIndex].title);
     console.log(currentQuestion);
     for (var i = 0; i < questionsArray[currentIndex].choices.length; i++) {
-      // var test = $("<button></button>");
-      // $(".answerBtn").append(currentQuestion.choices[i]).addClass("btn btn-info");
       $("#question-title").append(
         "<button class='btn btn-info'>" +
           questionsArray[currentIndex].choices[i] +
           "</button>"
       );
-      // currentIndex++
-      // $("#question-title").on("click", ".btn", function (event) {
-      //   event.preventDefault();
-      //   console.log("hello list names");
-      //   currentIndex++;
-      // $("#fav-names-list").append(this);
-      // });
       console.log(questionsArray[currentIndex]);
     }
   }
@@ -219,10 +203,10 @@ $(document).ready(function () {
       getQuestion();
     }
     if (currentIndex == questionsArray.length) {
-      currentIndex = 0
+      currentIndex = 0;
       // console.log("these are the results");
-      $("#question-title").hide()
-      $("#end-screen").show()
+      $("#question-title").hide();
+      $("#end-screen").show();
     }
   });
 
@@ -233,137 +217,15 @@ $(document).ready(function () {
     $("#fav-names-list").append(this);
   });
 
-  // function getQuestion1() {
-  //   questionsEl.addClass("show")
-  //   $("#choice1").removeClass("hide")
-  //   $("#choice2").removeClass("hide")
-  //   $("#choice3").removeClass("hide")
-  //   // append questions and answers
-  //   $("#question-title").html(questions[0].title);
-  //   $("#choice1").html(questions[0].choices[0]);
-  //   $("#choice2").html(questions[0].choices[1]);
-  //   $("#choice3").html(questions[0].choices[2]);
-  //   $("#choices").addClass("answer-buttons");
+  // Quiz Start function---------------------------------------------------------
 
-  //   $("#choice1").on("click", function() {
-  //     getQuestion2();
-  //   });
-  //   $("#choice2").on("click", function() {
-  //     getQuestion2();
-  //   });
-  //   $("#choice3").on("click", function() {
-  //     getQuestion2();
-  //   });
-  // };
-
-  // function getQuestion2() {
-
-  //   questionsEl.addClass("show")
-  //   $("#choice4").removeClass("hide")
-  //   // append questions and answers
-  //   $("#question-title").html(questions[1].title);
-  //   $("#choice1").html(questions[1].choices[0]);
-  //   $("#choice2").html(questions[1].choices[1]);
-  //   $("#choice3").html(questions[1].choices[2]);
-  //   $("#choice4").html(questions[1].choices[3]);
-
-  //   $("#choice1").on("click", function() {
-  //     getQuestion3();
-  //   });
-  //   $("#choice2").on("click", function() {
-  //     getQuestion3();
-  //   });
-  //   $("#choice3").on("click", function() {
-  //     getQuestion3();
-  //   });
-  // };
-
-  // function getQuestion3() {
-
-  //   questionsEl.addClass("show")
-  //   $("#choice4").addClass("hide")
-  //   // append questions and answers
-  //   $("#question-title").html(questions[2].title);
-  //   $("#choice1").html(questions[2].choices[0]);
-  //   $("#choice2").html(questions[2].choices[1]);
-  //   $("#choice3").html(questions[2].choices[2]);
-  //   $("#choices").addClass("answer-buttons");
-
-  //   $("#choice1").on("click", function() {
-  //     getQuestion4();
-  //   });
-  //   $("#choice2").on("click", function() {
-  //     getQuestion4();
-  //   });
-  //   $("#choice3").on("click", function() {
-  //     getQuestion4();
-  //   });
-  // };
-
-  // function getQuestion4() {
-
-  //   questionsEl.addClass("show")
-  //   // append questions and answers
-  //   $("#question-title").html(questions[3].title);
-  //   $("#choice1").html(questions[3].choices[0]);
-  //   $("#choice2").html(questions[3].choices[1]);
-  //   $("#choice3").html(questions[3].choices[2]);
-  //   $("#choices").addClass("answer-buttons");
-
-  //   $("#choice1").on("click", function() {
-  //     getQuestion5();
-  //   });
-  //   $("#choice2").on("click", function() {
-  //     getQuestion5();
-  //   });
-  //   $("#choice3").on("click", function() {
-  //     getQuestion5();
-  //   });
-  // };
-
-  // function getQuestion5() {
-
-  //   questionsEl.addClass("show")
-  //   $("#choice3").addClass("hide")
-  //   // append questions and answers
-  //   $("#question-title").html(questions[4].title);
-  //   $("#choice1").html(questions[4].choices[0]);
-  //   $("#choice2").html(questions[4].choices[1]);
-  //   $("#choice3").html(questions[4].choices[2]);
-  //   $("#choices").addClass("answer-buttons");
-
-  //   $("#choice1").on("click", function() {
-  //     console.log("Whats Next?")
-  //   });
-  //   $("#choice2").on("click", function() {
-  //     console.log("Whats Next?")
-  //   });
-  //   $("#choice3").on("click", function() {
-  //     console.log("Whats Next?")
-  //   });
-  // };
-
-  // function getQuestion1() {
-  //   questionsEl.addClass("show")
-  //   $("#choice1").removeClass("hide")
-  //   $("#choice2").removeClass("hide")
-  //   $("#choice3").removeClass("hide")
-  //   // append questions and answers
-  //   $("#question-title").html(questions[0].title);
-  //   $("#choice1").html(questions[0].choices[0]);
-  //   $("#choice2").html(questions[0].choices[1]);
-  //   $("#choice3").html(questions[0].choices[2]);
-  //   $("#choices").addClass("answer-buttons");
-
-  // }
-
-  // Quiz Start function
   function startQuiz() {
     questionsEl.removeAttr("class");
     getQuestion();
   }
 
   // Dog Quotes -----------------------------------------------------------------------
+  
   function dogQuoteGenerator() {
     for (var i = 0; i < 1; i++) {
       dogQuotes.push(
@@ -375,6 +237,7 @@ $(document).ready(function () {
   }
 
   // Event Listeners ---------------------------------------------------------------
+
   $(nameBtn).on("click", function () {
     dogNames = [];
     nameGen();
