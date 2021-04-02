@@ -48,7 +48,9 @@ li {
   padding-bottom: 25px;
   border-radius: 13px;
 }
-
+.btn-info {
+  display: block;
+}
 /* ID's -------------------------------------------------- */
 #search-container {
   background-color: rgb(253, 252, 252);
