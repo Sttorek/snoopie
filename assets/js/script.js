@@ -183,7 +183,7 @@ function nameGen() {
 
 $("#names-list").on("click", ".list-names", function(event) {
   event.preventDefault()
-  console.log("hello list names")
+  // console.log("hello list names")
   dogNames = [];
   $("#fav-names-list").append(this)
 
