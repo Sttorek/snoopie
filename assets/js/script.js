@@ -308,7 +308,7 @@ $(document).ready(function () {
   function dogQuoteGenerator() {
     for (var i = 0; i < 1; i++) {
       dogQuotes.push(
-        dogQuotesArray[Math.floor(Math.random() * dogQuotesArray.length)]
+        dogQuotesArray[Math.floor(Math.random() * i)]
       );
     }
     $("#person").append(dogQuotes[0].author);
