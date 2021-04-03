@@ -89,10 +89,13 @@ main div:hover {
 }
 
 .result {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-around;
-  align-items: center;
+  /* display: flex; */
+  /* flex-flow: row wrap;
+  justify-content: space-around; */
+  /* align-items: center; */
+  text-align: center;
+  padding-bottom: 20px;
+  padding-top: 20px;
 }
 
 #paw-box {
@@ -135,8 +138,8 @@ main div:hover {
 
 #search-container {
   background-color: rgb(253, 252, 252);
-  height: 1000px;
-  width: 1000px;
+  height: auto;
+  width: 600px;
   display: flex;
   justify-content: center;
   margin-top: 80px;

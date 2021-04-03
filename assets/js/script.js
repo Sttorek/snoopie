@@ -199,7 +199,7 @@ $(document).ready(function () {
         height: 200
       });
       var img4 = $("<img></img>");
-      img2.attr({
+      img4.attr({
         src: data[3].primary_photo_cropped.small,
         width: 200,
         height: 200
