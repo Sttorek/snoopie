@@ -201,6 +201,7 @@ main div:hover {
   justify-content: center;
   align-items: center;
   margin-left: 190px;
+  display: none;
 }
 
 #quiz-container {
