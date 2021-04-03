@@ -29,12 +29,6 @@ main div:hover {
   opacity: 0.9;
 }
 
-#page-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-left: 190px;
-}
 
 /* classes ----------------------------------------------- */
 
@@ -205,14 +199,26 @@ main div:hover {
 #fav-names-list {
   padding: 0px;
 }
-#page-container {
+.testing {
   
   display: flex;
   justify-content: center;
   align-items: center;
   margin-left: 190px;
+  
+  
+}
+
+#page-container {
+  /* display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 190px; */
   display: none;
 }
+
+
+
 
 #quiz-container {
   margin: auto;
