@@ -199,7 +199,7 @@ main div:hover {
 #fav-names-list {
   padding: 0px;
 }
-.testing {
+.show-results {
   
   display: flex;
   justify-content: center;
@@ -210,10 +210,7 @@ main div:hover {
 }
 
 #page-container {
-  /* display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-left: 190px; */
+  
   display: none;
 }
 
