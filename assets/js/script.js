@@ -1,9 +1,7 @@
 $(document).ready(function () {
   // Arrays ------------------------------------------------------------------------------
-  var dogQuotesArray = [
-      {
-        quote:
-          "“The dog is a gentleman; I hope to go to his heaven, not man’s”",
+  var dogQuotesArray = [{
+        quote: "“The dog is a gentleman; I hope to go to his heaven, not man’s”",
         author: "~ Mark Twain",
       },
 
@@ -18,8 +16,7 @@ $(document).ready(function () {
       },
 
       {
-        quote:
-          "'What do dogs do on their day off? Can't lie around - that's their job.'",
+        quote: "'What do dogs do on their day off? Can't lie around - that's their job.'",
         author: "~ George Carlin",
       },
 
@@ -29,11 +26,21 @@ $(document).ready(function () {
       },
 
       {
-        quote:
-          "'All his life he tried to be a good person. Many times, however, he failed. For after all, he was only human. He wasn't a dog.",
+        quote: "'All his life he tried to be a good person. Many times, however, he failed. For after all, he was only human. He wasn't a dog.",
         author: "~ Charles Shultz",
       },
+
+      {
+        quote: "'Everyone thinks they have the best dog. And none of them are wrong.",
+        author: "~ W.R. Purche",
+      },
+
+      {
+        quote: "'A dog is the only thing on Earth that loves you more than he loves himself.",
+        author: "~ Josh Billings",
+      }
     ],
+    
     print1 = $("#print1");
   print2 = $("#print2");
   print3 = $("#print3");
@@ -69,8 +76,7 @@ $(document).ready(function () {
   var currentIndex = 0;
   i = 0;
 
-  var questionsArray = [
-    {
+  var questionsArray = [{
       // would measure user's energy level
       title: "How active would you describe your lifestyle?",
       choices: ["low", "moderate", "high"],
@@ -126,10 +132,10 @@ $(document).ready(function () {
       dogSize;
 
     fetch(queryURL, {
-      headers: {
-        Authorization: "Bearer " + token,
-      },
-    })
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      })
       .then(function (response) {
         return response.json();
       })
@@ -159,16 +165,15 @@ $(document).ready(function () {
   // API pet fetch to get data
 
   fetch("https://api.petfinder.com/v2/oauth2/token", {
-    method: "POST",
-    body:
-      "grant_type=client_credentials&client_id=" +
-      key +
-      "&client_secret=" +
-      secret,
-    headers: {
-      "Content-Type": "application/x-www-form-urlencoded",
-    },
-  })
+      method: "POST",
+      body: "grant_type=client_credentials&client_id=" +
+        key +
+        "&client_secret=" +
+        secret,
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+    })
     .then(function (resp) {
       // Return the response as JSON
       return resp.json();
@@ -186,6 +191,7 @@ $(document).ready(function () {
   // Personality Quiz Intro ------------------------------------------------------
 
   personalityIntro();
+
   function personalityIntro() {
     var personalityTitle = $("<h1>")
       .addClass(".title")
@@ -233,8 +239,8 @@ $(document).ready(function () {
     for (var i = 0; i < questionsArray[currentIndex].choices.length; i++) {
       var answerButton = $(
         "<button class='btn btn-info'>" +
-          questionsArray[currentIndex].choices[i] +
-          "</button>"
+        questionsArray[currentIndex].choices[i] +
+        "</button>"
       );
       answerButton.val(questionsArray[currentIndex].choices[i]);
       $("#question-title").append(answerButton);
