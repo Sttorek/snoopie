@@ -158,8 +158,26 @@ $(document).ready(function () {
   //save results in localstorage then run renderResults
   function renderResults(data) {
     for (var i = 0; i < data.length; i++) {
-      console.log("name", data[i].name);
+      // console.log("name", data[i].name);
+      console.log("seth", data[i]);
+      $("#name1").text(data[0].name);
+      $("#name2").text(data[1].name);
+      $("#name3").text(data[2].name);
+      $("#name4").text(data[3].name);
+
+      var img1 = $("<img></img>");
+      img1.attr("src", data[0].primary_photo_cropped.small)
+      var img2 = $("<img></img>");
+      img2.attr("src", data[1].primary_photo_cropped.small)
+      var img3 = $("<img></img>");
+      img3.attr("src", data[2].primary_photo_cropped.small)
+      var img4 = $("<img></img>");
+      img4.attr("src", data[3].primary_photo_cropped.small)
     }
+    $("#result1").append(img1)
+    $("#result2").append(img2)
+    $("#result3").append(img3)
+    $("#result4").append(img4)
   }
 
   // API pet fetch to get data
@@ -244,7 +262,7 @@ $(document).ready(function () {
       );
       answerButton.val(questionsArray[currentIndex].choices[i]);
       $("#question-title").append(answerButton);
-      console.log(questionsArray[currentIndex].choices[i]);
+      // console.log(questionsArray[currentIndex].choices[i]);
     }
   }
   var answersArray = [];
