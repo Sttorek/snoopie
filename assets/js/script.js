@@ -98,36 +98,25 @@ $(document).ready(function () {
   ];
 
   // function Definitions --------------------------------------------------------------
-  var pawPrints = [print1, print2, print3, print4, print5, print6];
+  
+  var pawPrints = [$("#print1"), $("#print2"), $("#print3"), $("#print4"), $("#print5"), $("#print6")];
   function startImageTransition() {
+    var i = 0
     countdown = setInterval(
       function () {
-        i === 0
         console.log(pawPrints[i]);
-        pawPrints[i++].show();
-        // print2.show();
-        // print3.show();
-        // print4.show();
-        // print5.show();
-        // print6.show();
-        if (pawPrints[i++] >= 5) {
-      //  clearInterval(countdown);
-      console.log("bitchassss")
-      }
+        if ( i <= 5) {
+          pawPrints[i].removeClass("hide");
+          i++;
+          console.log(i);
+        } else 
+        clearInterval(countdown); return;
       },
-      
-      
-      2000);
-      pawPrints[i].hide();
-      print2.hide();
-      print3.hide();
-      print4.hide();
-      print5.hide();
-      print6.hide();
+      2250);
     }
-
   startImageTransition();
-  // API token fetch to access page-----------------------------------------------
+
+  // API token fetch to access page-----------------------------------------------------
 
   function firstFetch(token, zipcode, dogSize) {
     var queryURL =

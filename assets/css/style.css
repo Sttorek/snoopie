@@ -101,22 +101,32 @@ main div:hover {
   align-items: center;
 }
 
-
-
 #paw-box {
   display: flex;
   justify-content: space-between;
   
 }
 
-.paw {
-  animation: fadeIn 4s;
+.paw-container {
   height: 30px;
   width: 30px;
   margin-right: 150px;
-  
 }
+.paw1 { 
+  animation: fadeIn 1.5s infinite, fadeOut 9s infinite;
+  height: 30px;
+  width: 30px;
+   }
 
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
 
 @keyframes fadeIn {
   from {
