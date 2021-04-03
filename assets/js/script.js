@@ -159,7 +159,7 @@ $(document).ready(function () {
   function renderResults(data) {
     for (var i = 0; i < data.length; i++) {
       // console.log("name", data[i].name);
-      console.log("seth", data[i]);
+      console.log("animals", data[i]);
       $("#name1").text(data[0].name);
       $("#name2").text(data[1].name);
       $("#name3").text(data[2].name);
