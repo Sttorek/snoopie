@@ -165,14 +165,45 @@ $(document).ready(function () {
       $("#name3").text(data[2].name);
       $("#name4").text(data[3].name);
 
+      $("#location1").text(data[0].contact.address.address1 + data[0].contact.address.city + data[0].contact.address.state);
+      $("#location2").text(data[1].contact.address.address1 + data[1].contact.address.city + data[1].contact.address.state);
+      $("#location3").text(data[2].contact.address.address1 + data[2].contact.address.city + data[2].contact.address.state);
+      $("#location4").text(data[3].contact.address.address1 + data[3].contact.address.city + data[3].contact.address.state);
+
+      $("#breed1").text(data[0].breeds.primary);
+      $("#breed2").text(data[1].breeds.primary);
+      $("#breed3").text(data[2].breeds.primary);
+      $("#breed4").text(data[3].breeds.primary);
+
+      $("#contact1").text(data[0].contact.phone + data[0].contact.email);
+      $("#contact2").text(data[1].contact.phone + data[1].contact.email);
+      $("#contact3").text(data[2].contact.phone + data[2].contact.email);
+      $("#contact4").text(data[3].contact.phone + data[3].contact.email);
+      
       var img1 = $("<img></img>");
-      img1.attr("src", data[0].primary_photo_cropped.small)
+      img1.attr({
+        src: data[0].primary_photo_cropped.small,
+        width: 200,
+        height: 200,
+      });
       var img2 = $("<img></img>");
-      img2.attr("src", data[1].primary_photo_cropped.small)
+      img2.attr({
+        src: data[1].primary_photo_cropped.small,
+        width: 200,
+        height: 200
+      });
       var img3 = $("<img></img>");
-      img3.attr("src", data[2].primary_photo_cropped.small)
+      img3.attr({
+        src: data[2].primary_photo_cropped.small,
+        width: 200,
+        height: 200
+      });
       var img4 = $("<img></img>");
-      img4.attr("src", data[3].primary_photo_cropped.small)
+      img2.attr({
+        src: data[3].primary_photo_cropped.small,
+        width: 200,
+        height: 200
+      });
     }
     $("#result1").append(img1)
     $("#result2").append(img2)
