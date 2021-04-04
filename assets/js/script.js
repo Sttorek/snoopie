@@ -86,7 +86,7 @@ $(document).ready(function () {
     {
       // would measure user's dog size
       title: "What kind of home do you live in?",
-      choices: ["apartment", "house", "loft", "other"],
+      choices: ["apartment", "house", "loft", "farmhouse"],
     },
     {
       // would measure user's affection needs
@@ -419,12 +419,14 @@ console.log(queryURL);
     zipcodeInput = zipcodeEl.val();
     console.log(answersArray[1]);
     var dogSize;
-    if (answersArray[1] === "house") {
-      dogSize = "large";
+    if (answersArray[1] === "apartment") {
+      dogSize = "small";
+    } else if (answersArray[1] === "house"){
+      dogSize = "medium,large";
     } else if (answersArray[1] === "loft"){
       dogSize = "small,medium";
-    } else {
-      dogSize = "small"
+    } else if ((answersArray[1] === "farmhouse")) {
+      dogSize = "xlarge";
     }
     dogSizeEl.push(dogSize);
     // console.log(dogSizeEl);
