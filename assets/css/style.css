@@ -39,6 +39,13 @@ main div:hover {
   border: 1px solid black;
 }
 
+.result img {
+  padding-top: 20px;
+  width: 300px;
+  height: 250px;
+  object-fit: contain;
+}
+
 .wrapper {
   display: block;
   margin: 100px auto 0 auto;
