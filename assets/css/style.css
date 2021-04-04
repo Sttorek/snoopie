@@ -39,6 +39,13 @@ main div:hover {
   border: 1px solid black;
 }
 
+.result img {
+  padding-top: 20px;
+  width: 300px;
+  height: 250px;
+  object-fit: contain;
+}
+
 .wrapper {
   display: block;
   margin: 100px auto 0 auto;
@@ -134,8 +141,13 @@ main div:hover {
     opacity: 1;
   }
 }
-
+.nav-item {
+  margin-left: 20px;
+}
 /* ID's -------------------------------------------------- */
+#title {
+  font-size: 25px;
+}
 
 #search-container {
   background-color: rgb(253, 252, 252);
