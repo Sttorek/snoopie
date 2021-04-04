@@ -110,6 +110,12 @@ main div:hover {
   text-align: center;
 }
 
+.show-results {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 190px;
+}
 .result {
   /* display: flex; */
   /* flex-flow: row wrap;
@@ -231,12 +237,7 @@ main div:hover {
 #fav-names-list {
   padding: 0px;
 }
-.show-results {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-left: 190px;
-}
+
 
 #page-container {
   display: none;
@@ -249,6 +250,7 @@ main div:hover {
   width: 50%;
   height: 250px;
   border-radius: 15px;
+  flex: 1 3 100%;
 }
 
 #title {
@@ -258,4 +260,32 @@ main div:hover {
 #quote {
   font-family: "Dancing Script", cursive;
   font-size: 25px;
+}
+
+@media (max-width: 600px) {
+  .paw1 {
+    display: none;
+  }
+}
+
+
+@media (max-width: 992px) {
+  .sideNav-pg2 {
+    margin-top: 92px;
+    display: flex;
+    width: 150px;
+  }
+  
+}
+
+@media (max-width: 1100px) {
+  #quiz-container {
+    font-size: 10px;
+  }
+ #quote {
+   font-size: 15px;
+ }
+ #person {
+   font-size: 15px;
+ }
 }
