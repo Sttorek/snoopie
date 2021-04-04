@@ -119,11 +119,11 @@ $(document).ready(function () {
     var i = 0
     countdown = setInterval(
       function () {
-        console.log(pawPrints[i]);
+        // console.log(pawPrints[i]);
         if (i <= 5) {
           pawPrints[i].removeClass("hide");
           i++;
-          console.log(i);
+          // console.log(i);
         } else
           clearInterval(countdown);
         return;
@@ -141,7 +141,7 @@ $(document).ready(function () {
       "&size=" +
       dogSizeEl +
       "&species=dog&type=dog";
-console.log(queryURL);
+// console.log(queryURL);
     fetch(queryURL, {
       headers: {
         Authorization: "Bearer " + token,
@@ -162,13 +162,13 @@ console.log(queryURL);
         });
 
         // console.log(animalsAndZipcode);
-        console.log(animalsZipcodeSpecies);
+        // console.log(animalsZipcodeSpecies);
         // var zipcodeKey = data.animals[0].contact.address.postcode;
         // console.log(zipcodeKey);
       })
       .catch(function (err) {
         // Log any errors
-        console.log("something went wrong", err);
+        // console.log("something went wrong", err);
       });
   }
 
@@ -178,7 +178,7 @@ console.log(queryURL);
   function renderResults(data) {
     // for (var i = 0; i < data.length; i++) {
     // console.log("name", data[i].name);
-    console.log("animals", data[i]);
+    // console.log("animals", data[i]);
     $("#name1").text(data[0].name);
     $("#name2").text(data[1].name);
     $("#name3").text(data[2].name);
@@ -265,12 +265,12 @@ console.log(queryURL);
     })
     .then(function (data) {
       // Log the API data
-      console.log("token", data);
+      // console.log("token", data);
       token = data.access_token;
     })
     .catch(function (err) {
       // Log any errors
-      console.log("something went wrong", err);
+      // console.log("something went wrong", err);
     });
 
   // Personality Quiz Intro ------------------------------------------------------
@@ -311,9 +311,10 @@ console.log(queryURL);
           var li = $("<li>").text(dogNames[i]);
           li.addClass("list-names");
           listEl.append(div.append(li));
+
         }
-        console.log(data.contents.names);
-        console.log(dogNames);
+        // console.log(data.contents.names);
+        // console.log(dogNames);
       });
   }
 
@@ -336,7 +337,7 @@ console.log(queryURL);
   $("#question-title").on("click", ".btn", function (event) {
     var answers = $(this).val();
     answersArray.push(answers);
-    console.log(answersArray);
+    // console.log(answersArray);
     event.preventDefault();
 
     currentIndex++;
@@ -362,11 +363,25 @@ console.log(queryURL);
 
   // Moves choosen dogNames to favorites list ---------------------------------------------
 
+var history = [];
+var historyEl = JSON.parse(localStorage.getItem("li"))
   $("#names-list").on("click", ".list-names", function (event) {
+    // console.log(history)
     event.preventDefault();
-    console.log("hello list names");
+ 
     dogNames = [];
     $("#fav-names-list").append(this);
+    console.log(this)
+    // var storedName = $("#fav-names-list").val();
+    history.push(this)
+    // console.log(storedName)
+   
+    console.log(historyEl)
+    localStorage.setItem("history", JSON.stringify(history));
+
+
+
+    
   });
 
   // Quiz Start function---------------------------------------------------------
@@ -436,7 +451,7 @@ console.log(queryURL);
     $("#quiz-container").addClass("hide");
     $("#page-container").removeAttr("id");
     zipcodeInput = zipcodeEl.val();
-    console.log(answersArray[1]);
+    // console.log(answersArray[1]);
     var dogSize;
     if (answersArray[1] === "apartment") {
       dogSize = "small";
@@ -450,6 +465,6 @@ console.log(queryURL);
     dogSizeEl.push(dogSize);
     // console.log(dogSizeEl);
     firstFetch(token, zipcodeInput, dogSize);
-    console.log(zipcodeInput);
+    // console.log(zipcodeInput);
   });
 });
