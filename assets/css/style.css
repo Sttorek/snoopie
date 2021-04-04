@@ -110,7 +110,7 @@ main div:hover {
   margin-right: 150px;
 }
 .paw1 {
-  animation: fadeIn 1.5s infinite, fadeOut 9s infinite;
+  animation: fadeIn .5s infinite, fadeOut 3s infinite;
   height: 30px;
   width: 30px;
 }
