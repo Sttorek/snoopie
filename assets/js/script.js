@@ -40,7 +40,7 @@ $(document).ready(function () {
         author: "~ Josh Billings",
       }
     ],
-    
+
     print1 = $("#print1");
   print2 = $("#print2");
   print3 = $("#print3");
@@ -104,22 +104,24 @@ $(document).ready(function () {
   ];
 
   // function Definitions --------------------------------------------------------------
-  
+
   var pawPrints = [$("#print1"), $("#print2"), $("#print3"), $("#print4"), $("#print5"), $("#print6")];
+
   function startImageTransition() {
     var i = 0
     countdown = setInterval(
       function () {
         console.log(pawPrints[i]);
-        if ( i <= 5) {
+        if (i <= 5) {
           pawPrints[i].removeClass("hide");
           i++;
           console.log(i);
-        } else 
-        clearInterval(countdown); return;
+        } else
+          clearInterval(countdown);
+        return;
       },
       2250);
-    }
+  }
   startImageTransition();
 
   // API token fetch to access page-----------------------------------------------------
@@ -179,7 +181,7 @@ $(document).ready(function () {
       $("#contact2").text(data[1].contact.phone + data[1].contact.email);
       $("#contact3").text(data[2].contact.phone + data[2].contact.email);
       $("#contact4").text(data[3].contact.phone + data[3].contact.email);
-      
+
       var img1 = $("<img></img>");
       img1.attr({
         src: data[0].primary_photo_cropped.small,
@@ -350,14 +352,27 @@ $(document).ready(function () {
   // Dog Quotes -----------------------------------------------------------------------
   // set interval to rotate quotes
   function dogQuoteGenerator() {
-    for (var i = 0; i < 1; i++) {
-      dogQuotes.push(
-        dogQuotesArray[Math.floor(Math.random() * i)]
-      );
-    }
-    $("#person").append(dogQuotes[0].author);
-    $("#quote").append(dogQuotes[0].quote);
+    var i = 0;
+    setInterval(function () {
+      dogQuotes = [];
+      $("#person").empty()
+      $("#quote").empty()
+      for (var i = 0; i < 1; i++) {
+        // console.log(dogQuotes)
+
+        //  dogQuotes.empty();
+        dogQuotes.push(
+          
+          dogQuotesArray[Math.floor(Math.random() * dogQuotesArray.length)]
+          );
+          // console.log(dogQuotes)
+        $("#person").append(dogQuotes[0].author);
+        $("#quote").append(dogQuotes[0].quote);
+      }
+
+    }, 10000);
   }
+  dogQuoteGenerator();
 
   // Event Listeners ---------------------------------------------------------------
 
@@ -396,5 +411,5 @@ $(document).ready(function () {
   });
 
   // Function Calls -----------------------------------------------------------------
-  dogQuoteGenerator();
+  // dogQuoteGenerator();
 });
