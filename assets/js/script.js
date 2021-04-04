@@ -46,7 +46,7 @@ $(document).ready(function () {
         author: "~ Josh Billings",
       },
     ],
-  print1 = $("#print1");
+    print1 = $("#print1");
   print2 = $("#print2");
   print3 = $("#print3");
   print4 = $("#print4");
@@ -80,6 +80,7 @@ $(document).ready(function () {
   var dogQuotes = [];
   var currentIndex = 0;
   dogSizeEl = [];
+  petDanderEl = [];
 
   i = 0;
 
@@ -112,36 +113,50 @@ $(document).ready(function () {
   ];
 
   // API token fetch to access page-----------------------------------------------
-  
-  var pawPrints = [$("#print1"), $("#print2"), $("#print3"), $("#print4"), $("#print5"), $("#print6")];
+
+  var pawPrints = [
+    $("#print1"),
+    $("#print2"),
+    $("#print3"),
+    $("#print4"),
+    $("#print5"),
+    $("#print6"),
+  ];
 
   function startImageTransition() {
-    var i = 0
-    countdown = setInterval(
-      function () {
-        // console.log(pawPrints[i]);
-        if (i <= 5) {
-          pawPrints[i].removeClass("hide");
-          i++;
-          // console.log(i);
-        } else
-          clearInterval(countdown);
-        return;
-      },
-      750);
+    var i = 0;
+    countdown = setInterval(function () {
+      console.log(pawPrints[i]);
+      if (i <= 5) {
+        pawPrints[i].removeClass("hide");
+        i++;
+        console.log(i);
+      } else clearInterval(countdown);
+      return;
+    }, 750);
   }
   startImageTransition();
 
   // API token fetch to access page-----------------------------------------------------
 
   function firstFetch(token, zipcode, dogSizeEl) {
-    var queryURL =
-      "https://api.petfinder.com/v2/animals?distance=50&location=" +
-      zipcode +
-      "&size=" +
-      dogSizeEl +
-      "&species=dog&type=dog";
-// console.log(queryURL);
+    console.log(petDanderEl);
+    if (petDanderEl == "allergic") {
+      queryURL =
+        "https://api.petfinder.com/v2/animals?distance=50&location=" +
+        zipcode +
+        "&size=" +
+        dogSizeEl +
+        "&species=dog&type=dog&species=dog&type=dog&breed=bedlington-terrier,poodle,shih-tzu,yorkshire-terrier,bichon-frise,chinese-crested-dog,affenpinscher,basenji";
+    } else {
+      queryURL =
+        "https://api.petfinder.com/v2/animals?distance=50&location=" +
+        zipcode +
+        "&size=" +
+        dogSizeEl +
+        "&species=dog&type=dog";
+    }
+    console.log(queryURL);
     fetch(queryURL, {
       headers: {
         Authorization: "Bearer " + token,
@@ -170,6 +185,7 @@ $(document).ready(function () {
         // Log any errors
         // console.log("something went wrong", err);
       });
+    return;
   }
 
   // Display Dog Information ----------------------------------------------------------
@@ -185,24 +201,24 @@ $(document).ready(function () {
     $("#name4").text(data[3].name);
 
     $("#location1").text(
-      data[0].contact.address.address1 +
-        data[0].contact.address.city +
-        data[0].contact.address.state
+      data[0].contact.address.address1 + " " +
+        data[0].contact.address.city + "," +
+        data[0].contact.address.state + " " 
     );
     $("#location2").text(
-      data[1].contact.address.address1 +
-        data[1].contact.address.city +
-        data[1].contact.address.state
+      data[1].contact.address.address1 + " " +
+        data[1].contact.address.city + "," +
+        data[1].contact.address.state + " " 
     );
     $("#location3").text(
-      data[2].contact.address.address1 +
-        data[2].contact.address.city +
-        data[2].contact.address.state
+      data[2].contact.address.address1 + " " +
+        data[2].contact.address.city + "," +
+        data[2].contact.address.state + " " 
     );
     $("#location4").text(
-      data[3].contact.address.address1 +
-        data[3].contact.address.city +
-        data[3].contact.address.state
+      data[3].contact.address.address1 + " " +
+        data[3].contact.address.city + "," +
+        data[3].contact.address.state + " " 
     );
 
     $("#breed1").text(data[0].breeds.primary);
@@ -210,10 +226,10 @@ $(document).ready(function () {
     $("#breed3").text(data[2].breeds.primary);
     $("#breed4").text(data[3].breeds.primary);
 
-    $("#contact1").text(data[0].contact.phone + data[0].contact.email);
-    $("#contact2").text(data[1].contact.phone + data[1].contact.email);
-    $("#contact3").text(data[2].contact.phone + data[2].contact.email);
-    $("#contact4").text(data[3].contact.phone + data[3].contact.email);
+    $("#contact1").text(data[0].contact.phone +  " " + data[0].contact.email);
+    $("#contact2").text(data[1].contact.phone + " " + data[1].contact.email);
+    $("#contact3").text(data[2].contact.phone + " " + data[2].contact.email);
+    $("#contact4").text(data[3].contact.phone + " " + data[3].contact.email);
 
     var img1 = $("<img></img>");
     img1.attr({
@@ -329,12 +345,13 @@ $(document).ready(function () {
           "</button>"
       );
       answerButton.val(questionsArray[currentIndex].choices[i]);
-      $("#question-title").append(answerButton);
+      $(".choiceBtns").append(answerButton);
       // console.log(questionsArray[currentIndex].choices[i]);
     }
   }
   var answersArray = [];
-  $("#question-title").on("click", ".btn", function (event) {
+  $(".choiceBtns").on("click", ".btn", function (event) {
+    $(".choiceBtns").empty();
     var answers = $(this).val();
     answersArray.push(answers);
     // console.log(answersArray);
@@ -348,7 +365,7 @@ $(document).ready(function () {
     if (currentIndex == questionsArray.length) {
       currentIndex = 0;
       // console.log("these are the results");
-      $("#question-title").hide();
+      $(".choiceBtns").hide();
       $("#end-screen").show();
       getDog();
     }
@@ -361,7 +378,7 @@ $(document).ready(function () {
     $("#zipcodeForm").removeAttr("class");
   }
 
-  // Moves choosen dogNames to favorites list ---------------------------------------------
+  // Moves chosen dogNames to favorites list ---------------------------------------------
 
 var history = [];
 var historyEl = JSON.parse(localStorage.getItem("li"))
@@ -455,12 +472,16 @@ var historyEl = JSON.parse(localStorage.getItem("li"))
     var dogSize;
     if (answersArray[1] === "apartment") {
       dogSize = "small";
-    } else if (answersArray[1] === "house"){
+    } else if (answersArray[1] === "house") {
       dogSize = "medium,large";
-    } else if (answersArray[1] === "loft"){
+    } else if (answersArray[1] === "loft") {
       dogSize = "small,medium";
-    } else if ((answersArray[1] === "farmhouse")) {
+    } else if (answersArray[1] === "farmhouse") {
       dogSize = "xlarge";
+    }
+    if (answersArray[4] === "Yes") {
+      petDander = "allergic";
+      petDanderEl.push(petDander);
     }
     dogSizeEl.push(dogSize);
     // console.log(dogSizeEl);
