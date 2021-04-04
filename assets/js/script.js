@@ -46,42 +46,15 @@ $(document).ready(function () {
         author: "~ Josh Billings",
       },
     ],
-    print1 = $("#print1");
+  print1 = $("#print1");
   print2 = $("#print2");
   print3 = $("#print3");
   print4 = $("#print4");
   print5 = $("#print5");
   print6 = $("#print6");
 
-  var pawPrints = [print1, print2, print3, print4, print5, print6];
-  function startImageTransition() {
-    countdown = setInterval(
-      function () {
-        i === 0;
-        console.log(pawPrints[i]);
-        pawPrints[i++].show();
-        // print2.show();
-        // print3.show();
-        // print4.show();
-        // print5.show();
-        // print6.show();
-        if (pawPrints[i++] >= 5) {
-          //  clearInterval(countdown);
-          console.log("bitchassss");
-        }
-      },
-
-      2000
-    );
-    pawPrints[i].hide();
-    print2.hide();
-    print3.hide();
-    print4.hide();
-    print5.hide();
-    print6.hide();
-  }
-
   //Dom Variables------------------------------------------------------------------------
+
   key = "oxrPyoy6v3XMn43E8m5y5ZVOEGAmTO52CKOvjV7CckXTDJvpjG";
   var secret = "AYuKkVCKqFIYCOxKzBWeihxy7lA7vSOReHMlLC5E";
   var token;
@@ -138,57 +111,24 @@ $(document).ready(function () {
     },
   ];
 
-  // function Definitions --------------------------------------------------------------
-  var pawPrints = [print1, print2, print3, print4, print5, print6];
+  // API token fetch to access page-----------------------------------------------
+  
+  var pawPrints = [$("#print1"), $("#print2"), $("#print3"), $("#print4"), $("#print5"), $("#print6")];
+
   function startImageTransition() {
+    var i = 0
     countdown = setInterval(
       function () {
-        i === 0;
         console.log(pawPrints[i]);
-        pawPrints[i++].show();
-        // print2.show();
-        // print3.show();
-        // print4.show();
-        // print5.show();
-        // print6.show();
-        if (pawPrints[i++] >= 5) {
-          //  clearInterval(countdown);
-          console.log("bitchassss");
-        }
+        if (i <= 5) {
+          pawPrints[i].removeClass("hide");
+          i++;
+          console.log(i);
+        } else
+          clearInterval(countdown);
+        return;
       },
-
-      2000
-    );
-    pawPrints[i].hide();
-    print2.hide();
-    print3.hide();
-    print4.hide();
-    print5.hide();
-    print6.hide();
-  }
-
-  startImageTransition();
-  // API token fetch to access page-----------------------------------------------
-  var pawPrints = [
-    $("#print1"),
-    $("#print2"),
-    $("#print3"),
-    $("#print4"),
-    $("#print5"),
-    $("#print6"),
-  ];
-
-  function startImageTransition() {
-    var i = 0;
-    countdown = setInterval(function () {
-      console.log(pawPrints[i]);
-      if (i <= 5) {
-        pawPrints[i].removeClass("hide");
-        i++;
-        console.log(i);
-      } else clearInterval(countdown);
-      return;
-    }, 2250);
+      750);
   }
   startImageTransition();
 
