@@ -188,6 +188,8 @@ main div:hover {
   margin-top: 20px;
   width: 100px;
   align-items: center;
+  font-weight: bolder;
+  font-size: 16px;
 }
 
 #list-container {
