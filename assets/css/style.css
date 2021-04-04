@@ -6,7 +6,8 @@
 /* elements ----------------------------------------------*/
 
 html {
-  background: url(https://image.freepik.com/free-vector/seamless-pattern-with-heads-different-breeds-dogs-corgi-pug-chihuahua-terrier-husky-pomeranian_192280-204.jpg) no-repeat center center fixed;
+  background: url(https://image.freepik.com/free-vector/seamless-pattern-with-heads-different-breeds-dogs-corgi-pug-chihuahua-terrier-husky-pomeranian_192280-204.jpg)
+    no-repeat center center fixed;
   /* -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -29,7 +30,6 @@ main div:hover {
   border: 2px solid black;
   opacity: 0.9;
 }
-
 
 /* classes ----------------------------------------------- */
 
@@ -102,7 +102,6 @@ main div:hover {
 #paw-box {
   display: flex;
   justify-content: space-between;
-  
 }
 
 .paw-container {
@@ -110,12 +109,11 @@ main div:hover {
   width: 30px;
   margin-right: 150px;
 }
-.paw1 { 
+.paw1 {
   animation: fadeIn 1.5s infinite, fadeOut 9s infinite;
   height: 30px;
   width: 30px;
-   }
-
+}
 
 @keyframes fadeOut {
   from {
@@ -187,7 +185,7 @@ main div:hover {
 
 #fav-names {
   background-color: black;
-  color: #f28246;
+  color: #fc7e3a;
   font-size: 20px;
   padding: 0px;
 }
@@ -206,27 +204,20 @@ main div:hover {
   padding: 0px;
 }
 .show-results {
-  
   display: flex;
   justify-content: center;
   align-items: center;
   margin-left: 190px;
-  
-  
 }
 
 #page-container {
-  
   display: none;
 }
-
-
-
 
 #quiz-container {
   margin: auto;
   background-color: #023047;
-  color: #8ECAE6;
+  color: #8ecae6;
   width: 50%;
   height: 200px;
   border-radius: 15px;
