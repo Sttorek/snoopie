@@ -74,6 +74,8 @@ $(document).ready(function () {
   var dogNames = [];
   var dogQuotes = [];
   var currentIndex = 0;
+  dogSizeEl = [];
+
   i = 0;
 
   var questionsArray = [{
@@ -126,13 +128,14 @@ $(document).ready(function () {
 
   // API token fetch to access page-----------------------------------------------------
 
-  function firstFetch(token, zipcode, dogSize) {
+  function firstFetch(token, zipcode, dogSizeEl,) {
     var queryURL =
       "https://api.petfinder.com/v2/animals?distance=50&location=" +
       zipcode +
       "&size=" +
-      dogSize;
-
+      dogSizeEl +
+      "&species=dog";
+console.log(queryURL);
     fetch(queryURL, {
         headers: {
           Authorization: "Bearer " + token,
@@ -142,13 +145,19 @@ $(document).ready(function () {
         return response.json();
       })
       .then(function (data) {
-        console.log(data);
+        // console.log(data);
         renderResults(data.animals);
         var animalsAndZipcode = data.animals.filter(function (animal) {
           //returns a boolean
           return animal.contact.address.postcode === zipcodeInput;
         });
-        console.log(animalsAndZipcode);
+        var animalsZipcodeSpecies = data.animals.filter(function (animal) {
+          return animal.species === "Dog";
+        }) 
+
+
+        // console.log(animalsAndZipcode);
+        console.log(animalsZipcodeSpecies);
         // var zipcodeKey = data.animals[0].contact.address.postcode;
         // console.log(zipcodeKey);
       })
@@ -157,6 +166,9 @@ $(document).ready(function () {
         console.log("something went wrong", err);
       });
   }
+
+  // Display Dog Information ----------------------------------------------------------
+
   //save results in localstorage then run renderResults
   function renderResults(data) {
     // for (var i = 0; i < data.length; i++) {
@@ -374,10 +386,10 @@ $(document).ready(function () {
   }
   dogQuoteGenerator();
 
-  // Event Listeners ---------------------------------------------------------------
+  // Event Listener to Generate dog Names ---------------------------------------------------------------
 
   $(nameBtn).on("click", function () {
-    console.log("hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh")
+    // console.log("hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh")
     dogNames = [];
     nameGen();
     
@@ -387,6 +399,8 @@ $(document).ready(function () {
   // Can we give those buttons an ID or a class-name and on click, store that data in local storage?
   // Ok, once that data is stored, run nameGen() again to generate the next 5 random names.
 
+//  Event listener to Start Quiz -------------------------------------------------------- 
+
   startBtn.on("click", function () {
     //clear out personality title and instructions
     $(".start").hide();
@@ -395,6 +409,8 @@ $(document).ready(function () {
 
     startQuiz();
   });
+
+  // Event Listener to submit Zipcode -------------------------------------------------
 
   $(document).on("click", "#submit-button", function (event) {
     event.preventDefault();
@@ -408,10 +424,9 @@ $(document).ready(function () {
     } else {
       dogSize = "small";
     }
+    dogSizeEl.push(dogSize);
+    // console.log(dogSizeEl);
     firstFetch(token, zipcodeInput, dogSize);
     console.log(zipcodeInput);
   });
-
-  // Function Calls -----------------------------------------------------------------
-  // dogQuoteGenerator();
 });
