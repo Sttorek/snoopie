@@ -352,7 +352,6 @@ $(document).ready(function () {
   // Dog Quotes -----------------------------------------------------------------------
   // set interval to rotate quotes
   function dogQuoteGenerator() {
-<<<<<<< HEAD
     var i = 0;
     setInterval(function () {
       dogQuotes = [];
@@ -372,15 +371,6 @@ $(document).ready(function () {
       }
 
     }, 10000);
-=======
-    for (var i = 0; i < 1; i++) {
-      dogQuotes.push(
-        dogQuotesArray[Math.floor(Math.random() * dogQuotesArray.length)]
-      );
-    }
-    $("#person").append(dogQuotes[0].author);
-    $("#quote").append(dogQuotes[0].quote);
->>>>>>> 240e6b731ed276e74eaeeb8dd8d0d7cbb5794b60
   }
   dogQuoteGenerator();
 
