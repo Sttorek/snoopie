@@ -83,7 +83,7 @@ main div:hover {
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: lightsteelblue;
+  background-color: orange;
   overflow-x: hidden;
   margin-top: 55px;
   text-align: center;
@@ -186,7 +186,8 @@ main div:hover {
 }
 
 #fav-names {
-  color: red;
+  background-color: black;
+  color: #f28246;
   font-size: 20px;
   padding: 0px;
 }
