@@ -13,6 +13,8 @@ html {
   -o-background-size: cover;
   background-size: cover; */
   background-repeat: repeat;
+  margin-left: 190px;
+  margin-top: 56px;
 }
 
 body {
