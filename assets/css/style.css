@@ -59,6 +59,12 @@ main div:hover {
 
 .start {
   text-align: center;
+  justify-content: center;
+  padding-top: 50px;
+}
+
+.start-quizBtn {
+  padding-top: 20px;
 }
 
 .aside {
@@ -235,13 +241,8 @@ main div:hover {
   background-color: #023047;
   color: #8ecae6;
   width: 50%;
-  height: 200px;
+  height: 250px;
   border-radius: 15px;
-}
-
-#startBtn {
-  position: relative;
-  top: 30px;
 }
 
 #title {
