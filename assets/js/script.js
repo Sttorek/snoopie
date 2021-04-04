@@ -1,7 +1,9 @@
 $(document).ready(function () {
   // Arrays ------------------------------------------------------------------------------
-  var dogQuotesArray = [{
-        quote: "“The dog is a gentleman; I hope to go to his heaven, not man’s”",
+  var dogQuotesArray = [
+      {
+        quote:
+          "“The dog is a gentleman; I hope to go to his heaven, not man’s”",
         author: "~ Mark Twain",
       },
 
@@ -16,7 +18,8 @@ $(document).ready(function () {
       },
 
       {
-        quote: "'What do dogs do on their day off? Can't lie around - that's their job.'",
+        quote:
+          "'What do dogs do on their day off? Can't lie around - that's their job.'",
         author: "~ George Carlin",
       },
 
@@ -26,28 +29,29 @@ $(document).ready(function () {
       },
 
       {
-        quote: "'All his life he tried to be a good person. Many times, however, he failed. For after all, he was only human. He wasn't a dog.",
+        quote:
+          "'All his life he tried to be a good person. Many times, however, he failed. For after all, he was only human. He wasn't a dog.",
         author: "~ Charles Shultz",
       },
 
       {
-        quote: "'Everyone thinks they have the best dog. And none of them are wrong.",
+        quote:
+          "'Everyone thinks they have the best dog. And none of them are wrong.",
         author: "~ W.R. Purche",
       },
 
       {
-        quote: "'A dog is the only thing on Earth that loves you more than he loves himself.",
+        quote:
+          "'A dog is the only thing on Earth that loves you more than he loves himself.",
         author: "~ Josh Billings",
-      }
+      },
     ],
-
     print1 = $("#print1");
   print2 = $("#print2");
   print3 = $("#print3");
   print4 = $("#print4");
   print5 = $("#print5");
   print6 = $("#print6");
-
 
   //Dom Variables------------------------------------------------------------------------
   key = "oxrPyoy6v3XMn43E8m5y5ZVOEGAmTO52CKOvjV7CckXTDJvpjG";
@@ -78,7 +82,8 @@ $(document).ready(function () {
 
   i = 0;
 
-  var questionsArray = [{
+  var questionsArray = [
+    {
       // would measure user's energy level
       title: "How active would you describe your lifestyle?",
       choices: ["low", "moderate", "high"],
@@ -107,40 +112,44 @@ $(document).ready(function () {
 
   // function Definitions --------------------------------------------------------------
 
-  var pawPrints = [$("#print1"), $("#print2"), $("#print3"), $("#print4"), $("#print5"), $("#print6")];
+  var pawPrints = [
+    $("#print1"),
+    $("#print2"),
+    $("#print3"),
+    $("#print4"),
+    $("#print5"),
+    $("#print6"),
+  ];
 
   function startImageTransition() {
-    var i = 0
-    countdown = setInterval(
-      function () {
-        console.log(pawPrints[i]);
-        if (i <= 5) {
-          pawPrints[i].removeClass("hide");
-          i++;
-          console.log(i);
-        } else
-          clearInterval(countdown);
-        return;
-      },
-      2250);
+    var i = 0;
+    countdown = setInterval(function () {
+      console.log(pawPrints[i]);
+      if (i <= 5) {
+        pawPrints[i].removeClass("hide");
+        i++;
+        console.log(i);
+      } else clearInterval(countdown);
+      return;
+    }, 2250);
   }
   startImageTransition();
 
   // API token fetch to access page-----------------------------------------------------
 
-  function firstFetch(token, zipcode, dogSizeEl,) {
+  function firstFetch(token, zipcode, dogSizeEl) {
     var queryURL =
       "https://api.petfinder.com/v2/animals?distance=50&location=" +
       zipcode +
       "&size=" +
       dogSizeEl +
       "&species=dog&type=dog";
-console.log(queryURL);
+    console.log(queryURL);
     fetch(queryURL, {
-        headers: {
-          Authorization: "Bearer " + token,
-        },
-      })
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+    })
       .then(function (response) {
         return response.json();
       })
@@ -153,8 +162,7 @@ console.log(queryURL);
         });
         var animalsZipcodeSpecies = data.animals.filter(function (animal) {
           return animal.species === "Dog";
-        }) 
-
+        });
 
         // console.log(animalsAndZipcode);
         console.log(animalsZipcodeSpecies);
@@ -172,71 +180,88 @@ console.log(queryURL);
   //save results in localstorage then run renderResults
   function renderResults(data) {
     // for (var i = 0; i < data.length; i++) {
-      // console.log("name", data[i].name);
-      console.log("animals", data[i]);
-      $("#name1").text(data[0].name);
-      $("#name2").text(data[1].name);
-      $("#name3").text(data[2].name);
-      $("#name4").text(data[3].name);
+    // console.log("name", data[i].name);
+    console.log("animals", data[i]);
+    $("#name1").text(data[0].name);
+    $("#name2").text(data[1].name);
+    $("#name3").text(data[2].name);
+    $("#name4").text(data[3].name);
 
-      $("#location1").text(data[0].contact.address.address1 + data[0].contact.address.city + data[0].contact.address.state);
-      $("#location2").text(data[1].contact.address.address1 + data[1].contact.address.city + data[1].contact.address.state);
-      $("#location3").text(data[2].contact.address.address1 + data[2].contact.address.city + data[2].contact.address.state);
-      $("#location4").text(data[3].contact.address.address1 + data[3].contact.address.city + data[3].contact.address.state);
+    $("#location1").text(
+      data[0].contact.address.address1 +
+        data[0].contact.address.city +
+        data[0].contact.address.state
+    );
+    $("#location2").text(
+      data[1].contact.address.address1 +
+        data[1].contact.address.city +
+        data[1].contact.address.state
+    );
+    $("#location3").text(
+      data[2].contact.address.address1 +
+        data[2].contact.address.city +
+        data[2].contact.address.state
+    );
+    $("#location4").text(
+      data[3].contact.address.address1 +
+        data[3].contact.address.city +
+        data[3].contact.address.state
+    );
 
-      $("#breed1").text(data[0].breeds.primary);
-      $("#breed2").text(data[1].breeds.primary);
-      $("#breed3").text(data[2].breeds.primary);
-      $("#breed4").text(data[3].breeds.primary);
+    $("#breed1").text(data[0].breeds.primary);
+    $("#breed2").text(data[1].breeds.primary);
+    $("#breed3").text(data[2].breeds.primary);
+    $("#breed4").text(data[3].breeds.primary);
 
-      $("#contact1").text(data[0].contact.phone + data[0].contact.email);
-      $("#contact2").text(data[1].contact.phone + data[1].contact.email);
-      $("#contact3").text(data[2].contact.phone + data[2].contact.email);
-      $("#contact4").text(data[3].contact.phone + data[3].contact.email);
+    $("#contact1").text(data[0].contact.phone + data[0].contact.email);
+    $("#contact2").text(data[1].contact.phone + data[1].contact.email);
+    $("#contact3").text(data[2].contact.phone + data[2].contact.email);
+    $("#contact4").text(data[3].contact.phone + data[3].contact.email);
 
-      var img1 = $("<img></img>");
-      img1.attr({
-        src: data[0].primary_photo_cropped.small,
-        width: 200,
-        height: 200,
-      });
-      var img2 = $("<img></img>");
-      img2.attr({
-        src: data[1].primary_photo_cropped.small,
-        width: 200,
-        height: 200
-      });
-      var img3 = $("<img></img>");
-      img3.attr({
-        src: data[2].primary_photo_cropped.small,
-        width: 200,
-        height: 200
-      });
-      var img4 = $("<img></img>");
-      img4.attr({
-        src: data[3].primary_photo_cropped.small,
-        width: 200,
-        height: 200
-      });
+    var img1 = $("<img></img>");
+    img1.attr({
+      src: data[0].primary_photo_cropped.small,
+      width: 200,
+      height: 200,
+    });
+    var img2 = $("<img></img>");
+    img2.attr({
+      src: data[1].primary_photo_cropped.small,
+      width: 200,
+      height: 200,
+    });
+    var img3 = $("<img></img>");
+    img3.attr({
+      src: data[2].primary_photo_cropped.small,
+      width: 200,
+      height: 200,
+    });
+    var img4 = $("<img></img>");
+    img4.attr({
+      src: data[3].primary_photo_cropped.small,
+      width: 200,
+      height: 200,
+    });
     // }
-    $("#result1").append(img1)
-    $("#result2").append(img2)
-    $("#result3").append(img3)
-    $("#result4").append(img4)
+    $("#result1").append(img1);
+    $("#result2").append(img2);
+    $("#result3").append(img3);
+    $("#result4").append(img4);
   }
 
   // API pet fetch to get data
 
   fetch("https://api.petfinder.com/v2/oauth2/token", {
-      method: "POST",
-      body: "grant_type=client_credentials&client_id=" +
-        key +
-        "&client_secret=" +
-        secret,
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-    })
+    method: "POST",
+    body:
+      "grant_type=client_credentials&client_id=" +
+      key +
+      "&client_secret=" +
+      secret,
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+  })
     .then(function (resp) {
       // Return the response as JSON
       return resp.json();
@@ -302,8 +327,8 @@ console.log(queryURL);
     for (var i = 0; i < questionsArray[currentIndex].choices.length; i++) {
       var answerButton = $(
         "<button class='btn btn-info'>" +
-        questionsArray[currentIndex].choices[i] +
-        "</button>"
+          questionsArray[currentIndex].choices[i] +
+          "</button>"
       );
       answerButton.val(questionsArray[currentIndex].choices[i]);
       $("#question-title").append(answerButton);
@@ -367,21 +392,19 @@ console.log(queryURL);
     var i = 0;
     setInterval(function () {
       dogQuotes = [];
-      $("#person").empty()
-      $("#quote").empty()
+      $("#person").empty();
+      $("#quote").empty();
       for (var i = 0; i < 1; i++) {
         // console.log(dogQuotes)
 
         //  dogQuotes.empty();
         dogQuotes.push(
-          
           dogQuotesArray[Math.floor(Math.random() * dogQuotesArray.length)]
-          );
-          // console.log(dogQuotes)
+        );
+        // console.log(dogQuotes)
         $("#person").append(dogQuotes[0].author);
         $("#quote").append(dogQuotes[0].quote);
       }
-
     }, 10000);
   }
   dogQuoteGenerator();
@@ -392,14 +415,13 @@ console.log(queryURL);
     // console.log("hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh")
     dogNames = [];
     nameGen();
-    
   });
 
   //Another Event Listener that listens to what is clicked?
   // Can we give those buttons an ID or a class-name and on click, store that data in local storage?
   // Ok, once that data is stored, run nameGen() again to generate the next 5 random names.
 
-//  Event listener to Start Quiz -------------------------------------------------------- 
+  //  Event listener to Start Quiz --------------------------------------------------------
 
   startBtn.on("click", function () {
     //clear out personality title and instructions
@@ -421,11 +443,11 @@ console.log(queryURL);
     var dogSize;
     if (answersArray[1] === "apartment") {
       dogSize = "small";
-    } else if (answersArray[1] === "house"){
+    } else if (answersArray[1] === "house") {
       dogSize = "medium,large";
-    } else if (answersArray[1] === "loft"){
+    } else if (answersArray[1] === "loft") {
       dogSize = "small,medium";
-    } else if ((answersArray[1] === "farmhouse")) {
+    } else if (answersArray[1] === "farmhouse") {
       dogSize = "xlarge";
     }
     dogSizeEl.push(dogSize);
