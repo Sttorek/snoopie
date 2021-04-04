@@ -296,10 +296,10 @@ $(document).ready(function () {
   function personalityIntro() {
     var personalityTitle = $("<h1>")
       .addClass(".title")
-      .text("Personality Quiz");
+      .text("Lifestyle Quiz");
     var instructions = $("<p>")
       .addClass(".instructions")
-      .text("Take the personality quiz to match with a dog near you!");
+      .text("Take the lifestyle quiz to match with a dog near you!");
     $(".start").append(personalityTitle);
     $(".start").append(instructions);
   }
