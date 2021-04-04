@@ -159,7 +159,7 @@ $(document).ready(function () {
   }
   //save results in localstorage then run renderResults
   function renderResults(data) {
-    for (var i = 0; i < data.length; i++) {
+    // for (var i = 0; i < data.length; i++) {
       // console.log("name", data[i].name);
       console.log("animals", data[i]);
       $("#name1").text(data[0].name);
@@ -206,7 +206,7 @@ $(document).ready(function () {
         width: 200,
         height: 200
       });
-    }
+    // }
     $("#result1").append(img1)
     $("#result2").append(img2)
     $("#result3").append(img3)
@@ -352,6 +352,7 @@ $(document).ready(function () {
   // Dog Quotes -----------------------------------------------------------------------
   // set interval to rotate quotes
   function dogQuoteGenerator() {
+<<<<<<< HEAD
     var i = 0;
     setInterval(function () {
       dogQuotes = [];
@@ -371,14 +372,25 @@ $(document).ready(function () {
       }
 
     }, 10000);
+=======
+    for (var i = 0; i < 1; i++) {
+      dogQuotes.push(
+        dogQuotesArray[Math.floor(Math.random() * dogQuotesArray.length)]
+      );
+    }
+    $("#person").append(dogQuotes[0].author);
+    $("#quote").append(dogQuotes[0].quote);
+>>>>>>> 240e6b731ed276e74eaeeb8dd8d0d7cbb5794b60
   }
   dogQuoteGenerator();
 
   // Event Listeners ---------------------------------------------------------------
 
   $(nameBtn).on("click", function () {
+    console.log("hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh")
     dogNames = [];
     nameGen();
+    
   });
 
   //Another Event Listener that listens to what is clicked?
