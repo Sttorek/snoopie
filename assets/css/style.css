@@ -7,10 +7,11 @@
 
 html {
   background: url(https://image.freepik.com/free-vector/seamless-pattern-with-heads-different-breeds-dogs-corgi-pug-chihuahua-terrier-husky-pomeranian_192280-204.jpg) no-repeat center center fixed;
-  -webkit-background-size: cover;
+  /* -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover;
+  background-size: cover; */
+  background-repeat: repeat;
 }
 
 body {
@@ -29,12 +30,6 @@ main div:hover {
   opacity: 0.9;
 }
 
-#page-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-left: 190px;
-}
 
 /* classes ----------------------------------------------- */
 
@@ -95,13 +90,14 @@ main div:hover {
 }
 
 .result {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-around;
-  align-items: center;
+  /* display: flex; */
+  /* flex-flow: row wrap;
+  justify-content: space-around; */
+  /* align-items: center; */
+  text-align: center;
+  padding-bottom: 20px;
+  padding-top: 20px;
 }
-
-
 
 #paw-box {
   display: flex;
@@ -109,14 +105,26 @@ main div:hover {
   
 }
 
-.paw {
-  animation: fadeIn 4s;
+.paw-container {
   height: 30px;
   width: 30px;
   margin-right: 150px;
-  
 }
+.paw1 { 
+  animation: fadeIn 1.5s infinite, fadeOut 9s infinite;
+  height: 30px;
+  width: 30px;
+   }
 
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
 
 @keyframes fadeIn {
   from {
@@ -131,8 +139,8 @@ main div:hover {
 
 #search-container {
   background-color: rgb(253, 252, 252);
-  height: 1000px;
-  width: 1000px;
+  height: auto;
+  width: 600px;
   display: flex;
   justify-content: center;
   margin-top: 80px;
@@ -195,13 +203,23 @@ main div:hover {
 #fav-names-list {
   padding: 0px;
 }
-#page-container {
+.show-results {
   
   display: flex;
   justify-content: center;
   align-items: center;
   margin-left: 190px;
+  
+  
 }
+
+#page-container {
+  
+  display: none;
+}
+
+
+
 
 #quiz-container {
   margin: auto;

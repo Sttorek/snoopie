@@ -17,7 +17,7 @@
 
 <body>
   <!---------------- Nav Bar -------------------->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
     <div class="container-fluid">
       <a id="title" class="navbar-brand" href="#">Snoopie</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -35,16 +35,24 @@
         </ul>
       </div>
       <div id="paw-box">
-      <img id="print1" class="paw hide" alt="paw-print" src="assets/images/paw.jpg">
-      <img id="print2" class="paw hide" alt="paw-print" src="assets/images/paw.jpg">
-      <img id="print3" class="paw hide" alt="paw-print" src="assets/images/paw.jpg">
-      <img id="print4" class="paw hide" alt="paw-print" src="assets/images/paw.jpg">
-      <img id="print5" class="paw hide" alt="paw-print" src="assets/images/paw.jpg">
-      <img id="print6" class="paw hide" alt="paw-print" src="assets/images/paw.jpg">
- 
-    
-     
-      </div>
+        <div class="paw-container">
+          <img id="print1" class="paw1 hide" alt="paw-print" src="assets/images/paw.jpg">
+        </div>
+        <div class="paw-container">
+          <img id="print2" class="paw1 hide" alt="paw-print" src="assets/images/paw.jpg">
+        </div>
+        <div class="paw-container">
+          <img id="print3" class="paw1 hide" alt="paw-print" src="assets/images/paw.jpg">
+        </div>
+        <div class="paw-container">
+          <img id="print4" class="paw1 hide" alt="paw-print" src="assets/images/paw.jpg">
+        </div>
+        <div class="paw-container">
+          <img id="print5" class="paw1 hide" alt="paw-print" src="assets/images/paw.jpg">
+        </div>
+        <div class="paw-container">
+          <img id="print6" class="paw1 hide" alt="paw-print" src="assets/images/paw.jpg">
+        </div>
     </nav>
     
      <!------------------- Aside -------------------->
@@ -89,6 +97,47 @@
 
         <div id="match-dog" class="match-dog hide"></div>
       </div>
+  </div>
+  <!-- results box---------------------------------------------------- -->
+    <div id="page-container" class="show-results">
+
+      <main id="search-container" class="row">
+        
+        <div class="result col-12" id="result1">
+          <h4 id="name1">Dog Name</h4>
+          <p id="location1">Location</p>
+          <p id="breed1">Breed</p>
+          <p id="contact1">contact</p>
+          
+        </div>
+        
+        <div class="result col-12" id="result2">
+          <h4 id="name2">Dog Name</h4>
+          <p id="location2">Location</p>
+          <p id="breed2">Breed</p>
+          <p id="contact2">contact</p>
+         
+        </div>
+
+        
+        <div class="result col-12" id="result3">
+          <h4 id="name3">Dog Name</h4>
+          <p id="location3">Location</p>
+          <p id="breed3">Breed</p>
+          <p id="contact3">contact</p>
+          
+        </div>
+
+        
+        <div class="result col-12" id="result4">
+          <h4 id="name4">Dog Name</h4>
+          <p id="location4">Location</p>
+          <p id="breed4">Breed</p>
+          <p id="contact4">contact</p>
+          
+        </div>
+
+      </main>
   </div>
 
   <!---------------------- Footer ------------------------->

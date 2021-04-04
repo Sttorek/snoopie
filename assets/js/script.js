@@ -33,6 +33,18 @@ $(document).ready(function () {
           "'All his life he tried to be a good person. Many times, however, he failed. For after all, he was only human. He wasn't a dog.",
         author: "~ Charles Shultz",
       },
+
+      {
+        quote:
+          "'Everyone thinks they have the best dog. And none of them are wrong.",
+        author: "~ W.R. Purche",
+      },
+
+      {
+        quote:
+          "'A dog is the only thing on Earth that loves you more than he loves himself.",
+        author: "~ Josh Billings",
+      },
     ],
     print1 = $("#print1");
   print2 = $("#print2");
@@ -94,6 +106,8 @@ $(document).ready(function () {
   var dogNames = [];
   var dogQuotes = [];
   var currentIndex = 0;
+  dogSizeEl = [];
+
   i = 0;
 
   var questionsArray = [
@@ -129,7 +143,7 @@ $(document).ready(function () {
   function startImageTransition() {
     countdown = setInterval(
       function () {
-        i === 0
+        i === 0;
         console.log(pawPrints[i]);
         pawPrints[i++].show();
         // print2.show();
@@ -138,31 +152,56 @@ $(document).ready(function () {
         // print5.show();
         // print6.show();
         if (pawPrints[i++] >= 5) {
-      //  clearInterval(countdown);
-      console.log("bitchassss")
-      }
+          //  clearInterval(countdown);
+          console.log("bitchassss");
+        }
       },
-      
-      
-      2000);
-      pawPrints[i].hide();
-      print2.hide();
-      print3.hide();
-      print4.hide();
-      print5.hide();
-      print6.hide();
-    }
+
+      2000
+    );
+    pawPrints[i].hide();
+    print2.hide();
+    print3.hide();
+    print4.hide();
+    print5.hide();
+    print6.hide();
+  }
 
   startImageTransition();
   // API token fetch to access page-----------------------------------------------
+  var pawPrints = [
+    $("#print1"),
+    $("#print2"),
+    $("#print3"),
+    $("#print4"),
+    $("#print5"),
+    $("#print6"),
+  ];
 
-  function firstFetch(token, zipcode, dogSize) {
+  function startImageTransition() {
+    var i = 0;
+    countdown = setInterval(function () {
+      console.log(pawPrints[i]);
+      if (i <= 5) {
+        pawPrints[i].removeClass("hide");
+        i++;
+        console.log(i);
+      } else clearInterval(countdown);
+      return;
+    }, 2250);
+  }
+  startImageTransition();
+
+  // API token fetch to access page-----------------------------------------------------
+
+  function firstFetch(token, zipcode, dogSizeEl) {
     var queryURL =
       "https://api.petfinder.com/v2/animals?distance=50&location=" +
       zipcode +
       "&size=" +
-      dogSize;
-
+      dogSizeEl +
+      "&species=dog";
+    console.log(queryURL);
     fetch(queryURL, {
       headers: {
         Authorization: "Bearer " + token,
@@ -172,13 +211,18 @@ $(document).ready(function () {
         return response.json();
       })
       .then(function (data) {
-        console.log(data);
+        // console.log(data);
         renderResults(data.animals);
         var animalsAndZipcode = data.animals.filter(function (animal) {
           //returns a boolean
           return animal.contact.address.postcode === zipcodeInput;
         });
-        console.log(animalsAndZipcode);
+        var animalsZipcodeSpecies = data.animals.filter(function (animal) {
+          return animal.species === "Dog";
+        });
+
+        // console.log(animalsAndZipcode);
+        console.log(animalsZipcodeSpecies);
         // var zipcodeKey = data.animals[0].contact.address.postcode;
         // console.log(zipcodeKey);
       })
@@ -187,11 +231,79 @@ $(document).ready(function () {
         console.log("something went wrong", err);
       });
   }
+
+  // Display Dog Information ----------------------------------------------------------
+
   //save results in localstorage then run renderResults
   function renderResults(data) {
-    for (var i = 0; i < data.length; i++) {
-      console.log("name", data[i].name);
-    }
+    // for (var i = 0; i < data.length; i++) {
+    // console.log("name", data[i].name);
+    console.log("animals", data[i]);
+    $("#name1").text(data[0].name);
+    $("#name2").text(data[1].name);
+    $("#name3").text(data[2].name);
+    $("#name4").text(data[3].name);
+
+    $("#location1").text(
+      data[0].contact.address.address1 +
+        data[0].contact.address.city +
+        data[0].contact.address.state
+    );
+    $("#location2").text(
+      data[1].contact.address.address1 +
+        data[1].contact.address.city +
+        data[1].contact.address.state
+    );
+    $("#location3").text(
+      data[2].contact.address.address1 +
+        data[2].contact.address.city +
+        data[2].contact.address.state
+    );
+    $("#location4").text(
+      data[3].contact.address.address1 +
+        data[3].contact.address.city +
+        data[3].contact.address.state
+    );
+
+    $("#breed1").text(data[0].breeds.primary);
+    $("#breed2").text(data[1].breeds.primary);
+    $("#breed3").text(data[2].breeds.primary);
+    $("#breed4").text(data[3].breeds.primary);
+
+    $("#contact1").text(data[0].contact.phone + data[0].contact.email);
+    $("#contact2").text(data[1].contact.phone + data[1].contact.email);
+    $("#contact3").text(data[2].contact.phone + data[2].contact.email);
+    $("#contact4").text(data[3].contact.phone + data[3].contact.email);
+
+    var img1 = $("<img></img>");
+    img1.attr({
+      src: data[0].primary_photo_cropped.small,
+      width: 200,
+      height: 200,
+    });
+    var img2 = $("<img></img>");
+    img2.attr({
+      src: data[1].primary_photo_cropped.small,
+      width: 200,
+      height: 200,
+    });
+    var img3 = $("<img></img>");
+    img3.attr({
+      src: data[2].primary_photo_cropped.small,
+      width: 200,
+      height: 200,
+    });
+    var img4 = $("<img></img>");
+    img4.attr({
+      src: data[3].primary_photo_cropped.small,
+      width: 200,
+      height: 200,
+    });
+    // }
+    $("#result1").append(img1);
+    $("#result2").append(img2);
+    $("#result3").append(img3);
+    $("#result4").append(img4);
   }
 
   // API pet fetch to get data
@@ -224,6 +336,7 @@ $(document).ready(function () {
   // Personality Quiz Intro ------------------------------------------------------
 
   personalityIntro();
+
   function personalityIntro() {
     var personalityTitle = $("<h1>")
       .addClass(".title")
@@ -276,7 +389,7 @@ $(document).ready(function () {
       );
       answerButton.val(questionsArray[currentIndex].choices[i]);
       $("#question-title").append(answerButton);
-      console.log(questionsArray[currentIndex].choices[i]);
+      // console.log(questionsArray[currentIndex].choices[i]);
     }
   }
   var answersArray = [];
@@ -333,18 +446,30 @@ $(document).ready(function () {
   // Dog Quotes -----------------------------------------------------------------------
   // set interval to rotate quotes
   function dogQuoteGenerator() {
-    for (var i = 0; i < 1; i++) {
-      dogQuotes.push(
-        dogQuotesArray[Math.floor(Math.random() * dogQuotesArray.length)]
-      );
-    }
-    $("#person").append(dogQuotes[0].author);
-    $("#quote").append(dogQuotes[0].quote);
-  }
+    var i = 0;
+    setInterval(function () {
+      dogQuotes = [];
+      $("#person").empty();
+      $("#quote").empty();
+      for (var i = 0; i < 1; i++) {
+        // console.log(dogQuotes)
 
-  // Event Listeners ---------------------------------------------------------------
+        //  dogQuotes.empty();
+        dogQuotes.push(
+          dogQuotesArray[Math.floor(Math.random() * dogQuotesArray.length)]
+        );
+        // console.log(dogQuotes)
+        $("#person").append(dogQuotes[0].author);
+        $("#quote").append(dogQuotes[0].quote);
+      }
+    }, 10000);
+  }
+  dogQuoteGenerator();
+
+  // Event Listener to Generate dog Names ---------------------------------------------------------------
 
   $(nameBtn).on("click", function () {
+    // console.log("hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh")
     dogNames = [];
     nameGen();
   });
@@ -352,6 +477,8 @@ $(document).ready(function () {
   //Another Event Listener that listens to what is clicked?
   // Can we give those buttons an ID or a class-name and on click, store that data in local storage?
   // Ok, once that data is stored, run nameGen() again to generate the next 5 random names.
+
+  //  Event listener to Start Quiz --------------------------------------------------------
 
   startBtn.on("click", function () {
     //clear out personality title and instructions
@@ -362,9 +489,12 @@ $(document).ready(function () {
     startQuiz();
   });
 
+  // Event Listener to submit Zipcode -------------------------------------------------
+
   $(document).on("click", "#submit-button", function (event) {
     event.preventDefault();
     $("#quiz-container").addClass("hide");
+    $("#page-container").removeAttr("id");
     zipcodeInput = zipcodeEl.val();
     console.log(answersArray[1]);
     var dogSize;
@@ -373,10 +503,9 @@ $(document).ready(function () {
     } else {
       dogSize = "small";
     }
+    dogSizeEl.push(dogSize);
+    // console.log(dogSizeEl);
     firstFetch(token, zipcodeInput, dogSize);
     console.log(zipcodeInput);
   });
-
-  // Function Calls -----------------------------------------------------------------
-  dogQuoteGenerator();
 });
