@@ -13,6 +13,8 @@ html {
   -o-background-size: cover;
   background-size: cover; */
   background-repeat: repeat;
+  margin-left: 190px;
+  margin-top: 56px;
 }
 
 body {
@@ -35,6 +37,13 @@ main div:hover {
 
 .result {
   border: 1px solid black;
+}
+
+.result img {
+  padding-top: 20px;
+  width: 300px;
+  height: 250px;
+  object-fit: contain;
 }
 
 .wrapper {
@@ -132,8 +141,13 @@ main div:hover {
     opacity: 1;
   }
 }
-
+.nav-item {
+  margin-left: 20px;
+}
 /* ID's -------------------------------------------------- */
+#title {
+  font-size: 25px;
+}
 
 #search-container {
   background-color: rgb(253, 252, 252);
@@ -174,6 +188,8 @@ main div:hover {
   margin-top: 20px;
   width: 100px;
   align-items: center;
+  font-weight: bolder;
+  font-size: 16px;
 }
 
 #list-container {
