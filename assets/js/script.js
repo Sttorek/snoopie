@@ -200,8 +200,8 @@ $(document).ready(function () {
       zipcode +
       "&size=" +
       dogSizeEl +
-      "&species=dog";
-    console.log(queryURL);
+      "&species=dog&type=dog";
+console.log(queryURL);
     fetch(queryURL, {
       headers: {
         Authorization: "Bearer " + token,
@@ -500,8 +500,10 @@ $(document).ready(function () {
     var dogSize;
     if (answersArray[1] === "house") {
       dogSize = "large";
+    } else if (answersArray[1] === "loft"){
+      dogSize = "small,medium";
     } else {
-      dogSize = "small";
+      dogSize = "small"
     }
     dogSizeEl.push(dogSize);
     // console.log(dogSizeEl);
