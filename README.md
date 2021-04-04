@@ -1,11 +1,13 @@
 # snoopie
 
-Green 
 
-Josie 
+## Description
 
-Nicholas
+Snoopie is a web application utilizing Petfinder and name generator apis that allows 
 
-Matt
+![Snoopie site imgage](./assets/images/Horiseon-code-refactor.png)
 
-Seth
+## Deployed site
+You can find the deployed site here:
+
+[Snoopie site](https://sttorek.github.io/snoopie/)
