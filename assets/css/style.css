@@ -87,8 +87,14 @@ main div:hover {
   padding-bottom: 25px;
   border-radius: 13px;
 }
+
+.choiceBtns {
+  display: inline-block;
+  padding-top: 30px;
+}
+
 .btn-info {
-  display: block;
+  margin-right: 15px;
 }
 
 .sideNav-pg2 {

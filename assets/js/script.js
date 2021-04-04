@@ -344,12 +344,13 @@ $(document).ready(function () {
           "</button>"
       );
       answerButton.val(questionsArray[currentIndex].choices[i]);
-      $("#question-title").append(answerButton);
+      $(".choiceBtns").append(answerButton);
       // console.log(questionsArray[currentIndex].choices[i]);
     }
   }
   var answersArray = [];
-  $("#question-title").on("click", ".btn", function (event) {
+  $(".choiceBtns").on("click", ".btn", function (event) {
+    $(".choiceBtns").empty();
     var answers = $(this).val();
     answersArray.push(answers);
     console.log(answersArray);
@@ -363,7 +364,7 @@ $(document).ready(function () {
     if (currentIndex == questionsArray.length) {
       currentIndex = 0;
       // console.log("these are the results");
-      $("#question-title").hide();
+      $(".choiceBtns").hide();
       $("#end-screen").show();
       getDog();
     }
@@ -376,7 +377,7 @@ $(document).ready(function () {
     $("#zipcodeForm").removeAttr("class");
   }
 
-  // Moves choosen dogNames to favorites list ---------------------------------------------
+  // Moves chosen dogNames to favorites list ---------------------------------------------
 
   $("#names-list").on("click", ".list-names", function (event) {
     event.preventDefault();
