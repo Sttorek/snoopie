@@ -134,8 +134,13 @@ main div:hover {
     opacity: 1;
   }
 }
-
+.nav-item {
+  margin-left: 20px;
+}
 /* ID's -------------------------------------------------- */
+#title {
+  font-size: 25px;
+}
 
 #search-container {
   background-color: rgb(253, 252, 252);
