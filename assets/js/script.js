@@ -46,7 +46,7 @@ $(document).ready(function () {
         author: "~ Josh Billings",
       },
     ],
-  print1 = $("#print1");
+    print1 = $("#print1");
   print2 = $("#print2");
   print3 = $("#print3");
   print4 = $("#print4");
@@ -80,6 +80,7 @@ $(document).ready(function () {
   var dogQuotes = [];
   var currentIndex = 0;
   dogSizeEl = [];
+  petDanderEl = [];
 
   i = 0;
 
@@ -112,36 +113,50 @@ $(document).ready(function () {
   ];
 
   // API token fetch to access page-----------------------------------------------
-  
-  var pawPrints = [$("#print1"), $("#print2"), $("#print3"), $("#print4"), $("#print5"), $("#print6")];
+
+  var pawPrints = [
+    $("#print1"),
+    $("#print2"),
+    $("#print3"),
+    $("#print4"),
+    $("#print5"),
+    $("#print6"),
+  ];
 
   function startImageTransition() {
-    var i = 0
-    countdown = setInterval(
-      function () {
-        console.log(pawPrints[i]);
-        if (i <= 5) {
-          pawPrints[i].removeClass("hide");
-          i++;
-          console.log(i);
-        } else
-          clearInterval(countdown);
-        return;
-      },
-      750);
+    var i = 0;
+    countdown = setInterval(function () {
+      console.log(pawPrints[i]);
+      if (i <= 5) {
+        pawPrints[i].removeClass("hide");
+        i++;
+        console.log(i);
+      } else clearInterval(countdown);
+      return;
+    }, 750);
   }
   startImageTransition();
 
   // API token fetch to access page-----------------------------------------------------
 
   function firstFetch(token, zipcode, dogSizeEl) {
-    var queryURL =
-      "https://api.petfinder.com/v2/animals?distance=50&location=" +
-      zipcode +
-      "&size=" +
-      dogSizeEl +
-      "&species=dog&type=dog";
-console.log(queryURL);
+    console.log(petDanderEl);
+    if (petDanderEl == "allergic") {
+      queryURL =
+        "https://api.petfinder.com/v2/animals?distance=50&location=" +
+        zipcode +
+        "&size=" +
+        dogSizeEl +
+        "&species=dog&type=dog&species=dog&type=dog&breed=bedlington-terrier,poodle,shih-tzu,yorkshire-terrier,bichon-frise,chinese-crested-dog,affenpinscher,basenji";
+    } else {
+      queryURL =
+        "https://api.petfinder.com/v2/animals?distance=50&location=" +
+        zipcode +
+        "&size=" +
+        dogSizeEl +
+        "&species=dog&type=dog";
+    }
+    console.log(queryURL);
     fetch(queryURL, {
       headers: {
         Authorization: "Bearer " + token,
@@ -170,6 +185,7 @@ console.log(queryURL);
         // Log any errors
         console.log("something went wrong", err);
       });
+    return;
   }
 
   // Display Dog Information ----------------------------------------------------------
@@ -440,12 +456,16 @@ console.log(queryURL);
     var dogSize;
     if (answersArray[1] === "apartment") {
       dogSize = "small";
-    } else if (answersArray[1] === "house"){
+    } else if (answersArray[1] === "house") {
       dogSize = "medium,large";
-    } else if (answersArray[1] === "loft"){
+    } else if (answersArray[1] === "loft") {
       dogSize = "small,medium";
-    } else if ((answersArray[1] === "farmhouse")) {
+    } else if (answersArray[1] === "farmhouse") {
       dogSize = "xlarge";
+    }
+    if (answersArray[4] === "Yes") {
+      petDander = "allergic";
+      petDanderEl.push(petDander);
     }
     dogSizeEl.push(dogSize);
     // console.log(dogSizeEl);
