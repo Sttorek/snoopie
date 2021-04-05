@@ -3,8 +3,8 @@
 ## Deployed site
 You can find the deployed site [here](https://sttorek.github.io/snoopie/):
 
-![snoopie](assets/images/Snoopie.png)
 
+![snoopie](https://user-images.githubusercontent.com/78495603/113527737-72dd5500-958c-11eb-904f-07c892243e11.png)
 
 
 
