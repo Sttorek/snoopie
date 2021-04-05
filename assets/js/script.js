@@ -192,66 +192,76 @@ $(document).ready(function () {
 
   //save results in localstorage then run renderResults
   function renderResults(data) {
-    // for (var i = 0; i < data.length; i++) {
-    // console.log("name", data[i].name);
-    // console.log("animals", data[i]);
-    $("#name1").text(data[0].name);
-    $("#name2").text(data[1].name);
-    $("#name3").text(data[2].name);
-    $("#name4").text(data[3].name);
+    console.log(data);
+    for (var i = 0; i < 1; i++) {
+      dogOne = Math.floor(Math.random() * data.length);
+      dogTwo = Math.floor(Math.random() * data.length);
+      dogThree = Math.floor(Math.random() * data.length);
+      dogFour = Math.floor(Math.random() * data.length);
+      console.log(dogOne);
+      console.log(dogTwo);
+      console.log(dogThree);
+      console.log(dogFour);
+
+    };
+
+    $("#name1").text(data[dogOne].name);
+    $("#name2").text(data[dogTwo].name);
+    $("#name3").text(data[dogThree].name);
+    $("#name4").text(data[dogFour].name);
 
     $("#location1").text(
-      data[0].contact.address.address1 + " " +
-        data[0].contact.address.city + "," +
-        data[0].contact.address.state + " " 
+      data[dogOne].contact.address.address1 + " " +
+        data[dogOne].contact.address.city + "," +
+        data[dogOne].contact.address.state + " " 
     );
     $("#location2").text(
-      data[1].contact.address.address1 + " " +
-        data[1].contact.address.city + "," +
-        data[1].contact.address.state + " " 
+      data[dogTwo].contact.address.address1 + " " +
+        data[dogTwo].contact.address.city + "," +
+        data[dogTwo].contact.address.state + " " 
     );
     $("#location3").text(
-      data[2].contact.address.address1 + " " +
-        data[2].contact.address.city + "," +
-        data[2].contact.address.state + " " 
+      data[dogThree].contact.address.address1 + " " +
+        data[dogThree].contact.address.city + "," +
+        data[dogThree].contact.address.state + " " 
     );
     $("#location4").text(
-      data[3].contact.address.address1 + " " +
-        data[3].contact.address.city + "," +
-        data[3].contact.address.state + " " 
+      data[dogFour].contact.address.address1 + " " +
+        data[dogFour].contact.address.city + "," +
+        data[dogFour].contact.address.state + " " 
     );
 
-    $("#breed1").text(data[0].breeds.primary);
-    $("#breed2").text(data[1].breeds.primary);
-    $("#breed3").text(data[2].breeds.primary);
-    $("#breed4").text(data[3].breeds.primary);
+    $("#breed1").text(data[dogOne].breeds.primary);
+    $("#breed2").text(data[dogTwo].breeds.primary);
+    $("#breed3").text(data[dogThree].breeds.primary);
+    $("#breed4").text(data[dogFour].breeds.primary);
 
-    $("#contact1").text(data[0].contact.phone +  " " + data[0].contact.email);
-    $("#contact2").text(data[1].contact.phone + " " + data[1].contact.email);
-    $("#contact3").text(data[2].contact.phone + " " + data[2].contact.email);
-    $("#contact4").text(data[3].contact.phone + " " + data[3].contact.email);
+    $("#contact1").text(data[dogOne].contact.phone +  " " + data[dogOne].contact.email);
+    $("#contact2").text(data[dogTwo].contact.phone + " " + data[dogTwo].contact.email);
+    $("#contact3").text(data[dogThree].contact.phone + " " + data[dogThree].contact.email);
+    $("#contact4").text(data[dogFour].contact.phone + " " + data[dogFour].contact.email);
 
     var img1 = $("<img></img>");
     img1.attr({
-      src: data[0].primary_photo_cropped.small,
+      src: data[dogOne].primary_photo_cropped.small,
       width: 200,
       height: 200,
     });
     var img2 = $("<img></img>");
     img2.attr({
-      src: data[1].primary_photo_cropped.small,
+      src: data[dogTwo].primary_photo_cropped.small,
       width: 200,
       height: 200,
     });
     var img3 = $("<img></img>");
     img3.attr({
-      src: data[2].primary_photo_cropped.small,
+      src: data[dogThree].primary_photo_cropped.small,
       width: 200,
       height: 200,
     });
     var img4 = $("<img></img>");
     img4.attr({
-      src: data[3].primary_photo_cropped.small,
+      src: data[dogFour].primary_photo_cropped.small,
       width: 200,
       height: 200,
     });
