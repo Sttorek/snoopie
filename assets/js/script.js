@@ -391,7 +391,7 @@ $(document).ready(function () {
   // Moves chosen dogNames to favorites list ---------------------------------------------
 
 var history = [];
-var historyEl = JSON.parse(localStorage.getItem("li"))
+var historyEl = JSON.parse(localStorage.getItem("history"))
   $("#names-list").on("click", ".list-names", function (event) {
     // console.log(history)
     event.preventDefault();
