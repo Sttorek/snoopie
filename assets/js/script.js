@@ -444,7 +444,7 @@ var historyEl = JSON.parse(localStorage.getItem("li"))
         $("#person").append(dogQuotes[0].author);
         $("#quote").append(dogQuotes[0].quote);
       }
-    }, 10000);
+    }, 5000);
   }
   dogQuoteGenerator();
 
