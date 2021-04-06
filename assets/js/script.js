@@ -46,7 +46,7 @@ $(document).ready(function () {
         author: "~ Josh Billings",
       },
     ],
-    print1 = $("#print1");
+  print1 = $("#print1");
   print2 = $("#print2");
   print3 = $("#print3");
   print4 = $("#print4");
@@ -62,16 +62,9 @@ $(document).ready(function () {
   var nameBtn = $("#nameBtn");
 
   // Quiz Variables - Green
-  // var currentQuestion = 0;
-  var personalityTitle = "";
-
   var questionsEl = $("#questions");
-  var choicesEl = $("#choices");
-  var submitBtn = $("#submit");
   var startBtn = $("#startBtn");
-  var zipcodeForm = $("#zipcodeForm");
   var zipcodeEl = $("#zipcode");
-  var feedbackEl = $("#feedback");
 
   var zipcodeInput;
 
@@ -339,8 +332,6 @@ $(document).ready(function () {
           listEl.append(div.append(li));
 
         }
-        // console.log(data.contents.names);
-        // console.log(dogNames);
       });
   }
 
@@ -356,7 +347,6 @@ $(document).ready(function () {
       );
       answerButton.val(questionsArray[currentIndex].choices[i]);
       $(".choiceBtns").append(answerButton);
-      // console.log(questionsArray[currentIndex].choices[i]);
     }
   }
   var answersArray = [];
@@ -364,7 +354,6 @@ $(document).ready(function () {
     $(".choiceBtns").empty();
     var answers = $(this).val();
     answersArray.push(answers);
-    // console.log(answersArray);
     event.preventDefault();
 
     currentIndex++;
@@ -374,7 +363,6 @@ $(document).ready(function () {
     }
     if (currentIndex == questionsArray.length) {
       currentIndex = 0;
-      // console.log("these are the results");
       $(".choiceBtns").hide();
       $("#end-screen").show();
       getDog();
@@ -391,25 +379,29 @@ $(document).ready(function () {
   // Moves chosen dogNames to favorites list ---------------------------------------------
 
 var history = [];
-var historyEl = JSON.parse(localStorage.getItem("li"))
-  $("#names-list").on("click", ".list-names", function (event) {
-    // console.log(history)
+$("#names-list").on("click", ".list-names", function (event) {
     event.preventDefault();
- 
     dogNames = [];
     $("#fav-names-list").append(this);
-    console.log(this)
-    // var storedName = $("#fav-names-list").val();
-    history.push(this)
-    // console.log(storedName)
-   
-    console.log(historyEl)
+    var storedName = $(this).text();
+    history.push(storedName)
     localStorage.setItem("history", JSON.stringify(history));
-
-
-
-    
   });
+
+  function getNames() {
+    var historyEl = JSON.parse(localStorage.getItem("history"))||[];
+    for ( var i = 0; i < historyEl.length; i++) {
+      favNamesList(historyEl[i]);
+      console.log(historyEl);
+    }
+  }
+  getNames();
+
+  function favNamesList(history){
+    var li = $("<li>").text(history).addClass("list-names");
+    console.log(li)
+    $("#fav-names-list").append(li);
+  }
 
   // Quiz Start function---------------------------------------------------------
 
@@ -417,13 +409,6 @@ var historyEl = JSON.parse(localStorage.getItem("li"))
     questionsEl.removeAttr("class");
     getQuestion();
   }
-
-  // Quiz End function---------------------------------------------------------
-
-  // function endQuiz() {
-  //   zipcodeEl.removeAttr("class");
-  //   getDog();
-  // }
 
   // Dog Quotes -----------------------------------------------------------------------
   // set interval to rotate quotes
@@ -466,8 +451,6 @@ var historyEl = JSON.parse(localStorage.getItem("li"))
     //clear out personality title and instructions
     $(".start").hide();
     $("#startBtn").hide();
-    // $("#zipcodeForm").removeAttr("class");
-
     startQuiz();
   });
 
@@ -494,8 +477,6 @@ var historyEl = JSON.parse(localStorage.getItem("li"))
       petDanderEl.push(petDander);
     }
     dogSizeEl.push(dogSize);
-    // console.log(dogSizeEl);
     firstFetch(token, zipcodeInput, dogSize);
-    // console.log(zipcodeInput);
   });
 });
